@@ -1,0 +1,156 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+/* Main Section */
+.why-top-companies {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Flexbox Layout */
+.content-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/* Left Section */
+.text-container {
+    flex: 1;
+    text-align: left;
+}
+
+.heading {
+    font-size: 36px;
+    font-weight: bold;
+    color: #1f1f1f;
+}
+
+.highlight {
+    color: #0066ff;
+}
+
+.description {
+    font-size: 18px;
+    color: #555;
+    max-width: 500px;
+}
+
+/* Right Section - Video */
+.video-container {
+    flex: 1;
+    max-width: 600px;
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 350px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Video Slider Section */
+.slider-container {
+    position: relative;
+    width: 100%;
+    margin-top: 40px;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Video Slider */
+.video-slider {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+
+.video-slide {
+    flex: 0 0 100%;
+    transition: transform 0.5s ease-in-out;
+    
+    
+}
+
+
+.video-slide iframe {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+}
+
+/* Slider Buttons */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 20px;
+    transition: background 0.3s;
+}
+
+.slider-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.left-btn {
+    left: 10px;
+}
+
+.right-btn {
+    right: 10px;
+}
+
+/* Navigation Dots */
+.nav-slide {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.nav-slide div {
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.nav-slide .active {
+    background-color: #0066ff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .content-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .text-container {
+        text-align: center;
+    }
+
+    .slider-btn {
+        font-size: 16px;
+        padding: 8px 12px;
+    }
+}
