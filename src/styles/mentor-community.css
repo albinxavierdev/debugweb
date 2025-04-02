@@ -1,0 +1,38 @@
+.mentor-community-section {
+  padding: 80px 0;
+  background-color: #fff;
+}
+
+.mentor-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.mentor-description {
+  max-width: 800px;
+  margin: 24px auto 48px;
+}
+
+.mentor-description p {
+  margin: 12px 0;
+  color: #1e293b;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.mentor-logos {
+  margin: 40px 0;
+}
+
+.mentor-companies {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .mentor-description p {
+    font-size: 16px;
+  }
+} 

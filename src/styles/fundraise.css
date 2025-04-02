@@ -1,0 +1,65 @@
+.fundraise-section {
+  padding: 80px 0;
+  background-color: #f8f9fa;
+}
+
+.fundraise-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.fundraise-content {
+  margin-top: 48px;
+}
+
+.investor-logo {
+  max-width: 300px;
+  height: auto;
+  margin-bottom: 32px;
+}
+
+.welcome-text {
+  font-size: 24px;
+  color: #1e293b;
+  line-height: 1.5;
+  margin: 24px 0;
+}
+
+.existing-partners {
+  margin-top: 48px;
+}
+
+.existing-partners p {
+  color: #64748b;
+  font-size: 18px;
+  margin-bottom: 24px;
+}
+
+.partner-logos {
+  margin: 32px 0;
+}
+
+.partner-logos img {
+  max-width: 100%;
+  height: auto;
+}
+
+.fundraise-cta {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+  .welcome-text {
+    font-size: 20px;
+  }
+
+  .fundraise-cta {
+    flex-direction: column;
+    align-items: center;
+  }
+} 

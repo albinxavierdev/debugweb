@@ -1,0 +1,230 @@
+/* Teams Section Styles */
+
+.teams-section {
+  padding: 80px 20px;
+  background-color: #f8fafc;
+}
+
+.teams-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.teams-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-top: 48px;
+}
+
+/* Yukti Chatbot Styles */
+.yukti-chatbot {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+}
+
+.chatbot-header {
+  padding: 16px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.status-dot {
+  color: #10b981;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.status-dot::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #10b981;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.chat-messages {
+  flex-grow: 1;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.bot-message {
+  background: #f1f5f9;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  max-width: 80%;
+}
+
+.bot-message p {
+  margin: 0;
+  color: #1e293b;
+  line-height: 1.5;
+}
+
+.chat-input {
+  padding: 16px;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  gap: 12px;
+}
+
+.chat-input input {
+  flex-grow: 1;
+  padding: 12px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.chat-input input:focus {
+  border-color: #00B4D8;
+}
+
+.send-btn {
+  background: #00B4D8;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.send-btn:hover {
+  background: #0091ad;
+}
+
+/* Yukti Features Styles */
+.yukti-features {
+  padding: 32px;
+}
+
+.feature-title {
+  color: #00B4D8;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.feature-subtitle {
+  color: #1e293b;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.feature-description {
+  color: #64748b;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.feature-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.feature-icon {
+  color: #00B4D8;
+  font-size: 24px;
+  padding: 8px;
+  background: rgba(0, 180, 216, 0.1);
+  border-radius: 8px;
+}
+
+.feature-text h4 {
+  color: #1e293b;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.feature-text p {
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.try-yukti-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: #00B4D8;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.try-yukti-btn:hover {
+  background: #0091ad;
+}
+
+.try-yukti-btn span {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .teams-section {
+    padding: 60px 16px;
+  }
+
+  .teams-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .yukti-chatbot {
+    height: 500px;
+  }
+
+  .feature-title {
+    font-size: 28px;
+  }
+
+  .feature-subtitle {
+    font-size: 20px;
+  }
+
+  .feature-description {
+    font-size: 15px;
+  }
+
+  .feature-item {
+    gap: 12px;
+  }
+
+  .feature-text h4 {
+    font-size: 16px;
+  }
+
+  .feature-text p {
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,95 @@
+/* Companies Section Styles */
+
+.companies-section {
+  padding: 60px 20px;
+  background-color: #ffffff;
+}
+
+.companies-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.companies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  margin: 40px auto;
+  align-items: center;
+  justify-items: center;
+  max-width: 1100px;
+}
+
+.company-logo {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+}
+
+.companies-more {
+  color: #64748b;
+  font-size: 14px;
+  font-style: italic;
+  margin: 24px 0;
+}
+
+.companies-cta {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.btn {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn.primary {
+  background-color: #00B4D8;
+  color: white;
+}
+
+.btn.primary:hover {
+  background-color: #0096C7;
+}
+
+.btn.secondary {
+  border: 2px solid #00B4D8;
+  color: #00B4D8;
+  background-color: transparent;
+}
+
+.btn.secondary:hover {
+  background-color: rgba(0, 180, 216, 0.1);
+}
+
+@media (max-width: 768px) {
+  .companies-section {
+    padding: 40px 16px;
+  }
+
+  .companies-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  .company-logo {
+    width: 140px;
+    height: 140px;
+  }
+
+  .companies-cta {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
