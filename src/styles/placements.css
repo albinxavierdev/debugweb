@@ -1,3 +1,5 @@
+
+/* Placement section */
 .placement-section {
   padding: 80px 20px;
   background-color: #ffffff;
@@ -8,6 +10,14 @@
   margin: 0 auto;
 }
 
+.section-title {
+  color: #1e293b;
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Slider layout */
 .placement-slider {
   position: relative;
   margin: 48px 0;
@@ -21,9 +31,11 @@
   overflow-x: hidden;
   scroll-behavior: smooth;
   padding: 20px 0;
-  margin: 0 48px;
+  margin: 0 60px;
+  width: 100%;
 }
 
+/* Card styling */
 .placement-card {
   min-width: 280px;
   background: white;
@@ -33,6 +45,7 @@
   transition: all 0.3s ease;
   text-decoration: none;
   color: inherit;
+  flex: 1;
 }
 
 .placement-card:hover {
@@ -47,76 +60,43 @@
   transition: transform 0.3s ease;
 }
 
-.placement-card:hover .student-image {
-  transform: scale(1.05);
-}
-
-.student-info {
-  padding: 20px;
-  text-align: center;
-}
-
-.student-info h3 {
-  font-size: 20px;
-  font-weight: 600;
-  color: #1e293b;
-  margin-bottom: 8px;
-}
-
-.designation {
-  font-size: 16px;
-  color: #64748b;
-  margin-bottom: 16px;
-}
-
-.company {
-  height: 40px;
-  margin-bottom: 12px;
+.placeholder-image {
+  background-color: #e2e8f0;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 48px;
+  color: #94a3b8;
 }
 
-.company img {
-  max-height: 100%;
-  max-width: 120px;
-  object-fit: contain;
-}
-
-.company-logo {
-  height: 40px;
-  max-width: 120px;
-  object-fit: contain;
-  margin: 12px auto;
-  display: block;
-}
-
-.package {
-  font-size: 18px;
-  font-weight: 600;
-  color: #00B4D8;
-}
-
+/* Navigation button styling */
 .slider-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   background: white;
   border: none;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
+  z-index: 10;
 }
 
 .slider-btn:hover {
   background: #00B4D8;
   color: white;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.slider-btn:active {
+  transform: translateY(-50%) scale(0.95);
 }
 
 .slider-btn.prev {
@@ -127,11 +107,21 @@
   right: 0;
 }
 
+.slider-btn .material-icons {
+  font-size: 28px;
+  line-height: 1;
+}
+
+/* Dots navigation */
 .slider-dots {
   display: flex;
   justify-content: center;
   gap: 8px;
   margin-top: 24px;
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  right: 0;
 }
 
 .dot {
@@ -149,44 +139,47 @@
   background: #00B4D8;
 }
 
+/* Responsive styling */
 @media (max-width: 768px) {
   .placement-section {
     padding: 60px 16px;
   }
 
+  .section-title {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+
   .placement-cards {
     gap: 16px;
-    margin: 0 40px;
+    margin: 0 45px;
     padding: 16px 0;
   }
 
   .placement-card {
-    min-width: 260px;
+    min-width: 240px;
   }
 
   .student-image {
-    height: 260px;
+    height: 240px;
   }
 
-  .student-info {
-    padding: 16px;
+  /* Mobile navigation buttons */
+  .slider-btn {
+    width: 40px;
+    height: 40px;
   }
 
-  .student-info h3 {
-    font-size: 18px;
+  .slider-btn .material-icons {
+    font-size: 24px;
   }
 
-  .designation {
-    font-size: 14px;
+  .dot {
+    width: 6px;
+    height: 6px;
   }
 
-  .package {
-    font-size: 16px;
+  .dot.active {
+    width: 18px;
   }
-
-  .company-logo {
-    height: 32px;
-    max-width: 100px;
-    margin: 10px auto;
-  }
-} 
+}

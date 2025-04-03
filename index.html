@@ -65,7 +65,7 @@
           <img src="./src/images/Logos for Web/Debugshala-black-logo.png" alt="DS Logo" class="ds-logo" />
         </div>
         <nav class="main-nav">
-          <a href="/" class="nav-link active">Home</a>
+          <!-- <a href="/" class="nav-link active">Home</a> -->
           <div class="dropdown">
             <a href="#" class="nav-link">Programs</a>
             <div class="dropdown-content">
@@ -83,11 +83,11 @@
               </a>
             </div>
           </div>
-          <a href="/reviews" class="nav-link">Reviews</a>
+          <a href="/reviews" class="nav-link">Success Stories</a>
           <a href="/hire" class="nav-link">Hire with Us</a>
         </nav>
         <div class="header-cta">
-          <a href="https://learning.ccbp.in/" class="login-btn">Login</a>
+          <a href="https://learning.ccbp.in/" class="login-btn">Chat With Us</a>
         </div>
       </div>
       <div class="announcement-bar">
@@ -105,7 +105,7 @@
       <div class="hero-container">
           <h1 class="hero-title">Transform Your Future with NxtWave's Comprehensive Learning Programs</h1>
           
-          <div class="container">
+          <div class="container" id="container">
             <div class="card">
                 <div class="image-container">
                     <img src="./src/images/Logos for Web/Applied Space logo.png" alt="Logo 1">
@@ -120,16 +120,20 @@
                 <p><a href="#">Know More</a></p>
             </div>
             <div class="card">
-                <div class="image-container">
+                <div style="margin-top: 34px;" class="image-container">
                     <img src="./src/images/Logos for Web/Skillprep logo.png" alt="Logo 1">
-                    <img id="C2image" src="./src/images/people/placements.png" alt="Logo 2">
+                    
+                    <img id="C2image" src="./src/images/people/placements.png" alt="Logo 2" >
                 </div>
                 
                 <h4 class="badge purple" >GRADUATES </h4> 
                 <h4 class=" badge blue"> FINAL YEAR </h4>
                 <h4 class="badge green"> ANY BRANCH OR DEGREE</h4>
-                <p>A Proven Program to make you a Software Developer</p>
-                <p><strong>Batch Starts:</strong> Tomorrow</p>
+                <!-- <h3>Learn like top IITians and achieve high-paid software jobs</h3> -->
+
+                <h3>A Proven Program to make you a Software Developer </h3> 
+                <br>
+                <p><strong>Batch Starts:</strong> Tomorrow</p> 
                 <button>Book a Free Demo</button>
                 <p><a href="#">Know More</a></p>
             </div>
@@ -141,7 +145,7 @@
                 
                 <h4 class="badge green">Post 12TH </h4> <br> 
                 <h4 class="badge yellow">Intermediate (PCM)</h4>
-                <p>B.Tech Computer Science With AI/ML & Data Science Specialisation (On-Campus)</p>
+                <h3>B.Tech Computer Science With AI/ML & Data Science Specialisation (On-Campus)</h3>
                 <p><strong>Admissions open</strong> For 2025 Batch</p>
                 <button>Apply Now</button>
                 <p><a href="#">Know More</a></p>
@@ -247,68 +251,110 @@
     </section>
 
     <!-- Companies Section -->
-    <section class="companies-section">
-      <div class="companies-container">
-        <div class="companies-count">2000<span>+</span></div>
-        <h2 class="section-title">Companies have hired <span>NxtWave</span> learners</h2>
-        <p class="companies-description">Our learners are creating impact at top companies across different domains</p>
+   
+  <section id="companies-section" style="padding: 80px 20px; background-color: #ffffff;">
+    <div id="companies-container" style="max-width: 1200px; margin: 0 auto; text-align: center;">
+        <div id="companies-count" style="font-size: 48px; font-weight: 700; color: #0A2647; margin-bottom: 16px;">2000<span style="color: #00B4D8;">+</span></div>
+        <h2 id="section-title" style="color: #0A2647; font-size: 36px; font-weight: 700; margin-bottom: 48px; line-height: 1.3;">Companies have hired <span style="color: #00B4D8; position: relative;">NxtWave</span></h2>
+        <p id="companies-description" style="color: #64748b; font-size: 18px; max-width: 800px; margin: 0 auto 40px; line-height: 1.6;">Our learners are creating impact at top companies across different domains</p>
         
-        <div class="companies-grid">
-          <img src="/src/images/companies/google.png" alt="Google" class="company-logo">
-          <img src="/src/images/companies/microsoft.png" alt="Microsoft" class="company-logo">
-          <img src="/src/images/companies/amazon.png" alt="Amazon" class="company-logo">
-          <img src="/src/images/companies/meta.png" alt="Meta" class="company-logo">
-          <img src="/src/images/companies/apple.png" alt="Apple" class="company-logo">
-          <img src="/src/images/companies/adobe.png" alt="Adobe" class="company-logo">
-          <img src="/src/images/companies/salesforce.png" alt="Salesforce" class="company-logo">
-          <img src="/src/images/companies/ibm.png" alt="IBM" class="company-logo">
+        <div id="companies-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 32px; margin: 40px 0; place-items: center;">
+            <img src="./src/images/companies/amileap.png" alt="Google" style="background: #ffffff; height: 50px; width: auto; max-width: 100%; object-fit: contain; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+            <img src="./src/images/companies/avalon.png" alt="Microsoft" style="background: #ffffff; height: 50px; width: auto; max-width: 100%; object-fit: contain; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+            <img src="./src/images/companies/bitcot.png" alt="Amazon" style="background: #ffffff; height: 50px; width: auto; max-width: 100%; object-fit: contain; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+            <img src="./src/images/companies/bitsquad.png" alt="Meta" style="background: #ffffff; height: 50px; width: auto; max-width: 100%; object-fit: contain; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+            <img src="./src/images/companies/cubexo.png" alt="Apple" style="background: #ffffff; height: 50px; width: auto; max-width: 100%; object-fit: contain; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+            <!--<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Adobe_Systems_logo_and_wordmark.svg/1200px-Adobe_Systems_logo_and_wordmark.svg.png" alt="Adobe" style="background: #ffffff; height: 50px; width: auto; max-width: 100%; object-fit: contain; transition: transform 0.3s ease;" onmouseover="this-->
+            
+                            <img src="./src/images/companies/engneer master.png" alt="Adobe" style="background: #ffffff; height: 50px; width: auto; max-width: 100%; object-fit: contain; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+            <img src="./src/images/companies/esp softech.png" alt="Salesforce" style="background: #ffffff; height: 50px; width: auto; max-width: 100%; object-fit: contain; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+            <img src="./src/images/companies/nine a business.png" alt="IBM" style="background: #ffffff; height: 50px; width: auto; max-width: 100%; object-fit: contain; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+            <img src="./src/images/companies/pixoatic.png" alt="Samsung" style="background: #ffffff; height: 50px; width: auto; max-width: 100%; object-fit: contain; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+            <img src="./src/images/companies/sgs.png" alt="Infosys" style="background: #ffffff; height: 50px; width: auto; max-width: 100%; object-fit: contain; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+            <img src="./src/images/companies/throuhout.png" alt="Accenture" style="background: #ffffff; height: 50px; width: auto; max-width: 100%; object-fit: contain; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+            <img src="./src/images/companies/technotiol.png" alt="Oracle" style="background: #ffffff; height: 50px; width: auto; max-width: 100%; object-fit: contain; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
         </div>
         
-        <p class="companies-more">and many more...</p>
+        <p id="companies-more" style="color: #1e293b; font-size: 16px; font-weight: 500; margin: 24px 0;">and many more...</p>
         
-        <div class="companies-cta">
-          <a href="#" class="btn primary">View Success Stories</a>
-          <a href="#" class="btn secondary">Explore Programs</a>
+        <div id="companies-cta" style="display: flex; justify-content: center; gap: 16px; margin-top: 40px;">
+            <a href="#" class="btn primary" style="padding: 12px 24px; border-radius: 8px; font-weight: 500; text-decoration: none; background: #00B4D8; color: white; transition: all 0.3s ease;">View Success Stories</a>
+            <a href="#" class="btn secondary" style="padding: 12px 24px; border-radius: 8px; font-weight: 500; text-decoration: none; background: #f1f5f9; color: #1e293b; border: 1px solid #e2e8f0; transition: all 0.3s ease;">Explore Programs</a>
         </div>
-      </div>
-    </section>
+    </div>
+</section>
 
     <!-- Awards Section -->
     <section class="awards-section">
       <div class="awards-container">
-        <h2 class="section-title">College Sections and Workshops</h2>
-        <div class="workshop-slider">
-          <button class="slider-btn prev">
-            <span class="material-icons">chevron_left</span>
-          </button>
-          <div class="workshop-cards">
-            <!-- Card 1 -->
-            <div class="workshop-card">
-              <img src="/src/images/workshop/1736486106378.jpeg" alt="Workshop Session 1" class="workshop-image">
-              <p class="workshop-description">Full Stack Development Workshop at Engineering Colleges</p>
-            </div>
-            <!-- Card 2 -->
-            <div class="workshop-card">
-              <img src="/src/images/workshop/photo_2025-03-31_21-05-19.jpg" alt="Workshop Session 2" class="workshop-image">
-              <p class="workshop-description">Technical Sessions and Hands-on Training</p>
-            </div>
-            <!-- Card 3 -->
-            <div class="workshop-card">
-              <img src="/src/images/workshop/image1.jpg" alt="Workshop Session 3" class="workshop-image">
-              <p class="workshop-description">Campus Engagement Programs</p>
-            </div>
+          <h2 class="section-title">College Sections and Workshops</h2>
+          <div class="workshop-slider">
+              <div class="workshop-cards">
+                  <!-- Card 1 -->
+                  <div class="workshop-card">
+                      <img src="/src/images/workshop/1736486106378.jpeg" alt="Workshop Session 1" class="workshop-image">
+                      <p class="workshop-description">Full Stack Development Workshop at Engineering Colleges</p>
+                  </div>
+                  <!-- Card 2 -->
+                  <div class="workshop-card">
+                      <img src="/src/images/workshop/photo_2025-03-31_21-05-19.jpg" alt="Workshop Session 2" class="workshop-image">
+                      <p class="workshop-description">Technical Sessions and Hands-on Training</p>
+                  </div>
+                  <!-- Card 3 -->
+                  <div class="workshop-card">
+                      <img src="/src/images/workshop/image1.jpg" alt="Workshop Session 3" class="workshop-image">
+                      <p class="workshop-description">Campus Engagement Programs</p>
+                  </div>
+                  <!-- Card 4 -->
+                  <div class="workshop-card">
+                    <img src="/src/images/workshop/1736486106378.jpeg" alt="Workshop Session 1" class="workshop-image">
+                    <p class="workshop-description">Full Stack Development Workshop at Engineering Colleges</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="workshop-card">
+                    <img src="/src/images/workshop/photo_2025-03-31_21-05-19.jpg" alt="Workshop Session 2" class="workshop-image">
+                    <p class="workshop-description">Technical Sessions and Hands-on Training</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="workshop-card">
+                    <img src="/src/images/workshop/image1.jpg" alt="Workshop Session 3" class="workshop-image">
+                    <p class="workshop-description">Campus Engagement Programs</p>
+                </div>
+                  <!-- Duplicate Cards for Infinite Scrolling -->
+                  <div class="workshop-card">
+                      <img src="/src/images/workshop/1736486106378.jpeg" alt="Workshop Session 1" class="workshop-image">
+                      <p class="workshop-description">Full Stack Development Workshop at Engineering Colleges</p>
+                  </div>
+                  <div class="workshop-card">
+                      <img src="/src/images/workshop/photo_2025-03-31_21-05-19.jpg" alt="Workshop Session 2" class="workshop-image">
+                      <p class="workshop-description">Technical Sessions and Hands-on Training</p>
+                  </div>
+                  <div class="workshop-card">
+                      <img src="/src/images/workshop/image1.jpg" alt="Workshop Session 3" class="workshop-image">
+                      <p class="workshop-description">Campus Engagement Programs</p>
+                  </div>
+
+                  <div class="workshop-card">
+                    <img src="/src/images/workshop/1736486106378.jpeg" alt="Workshop Session 1" class="workshop-image">
+                    <p class="workshop-description">Full Stack Development Workshop at Engineering Colleges</p>
+                </div>
+                <div class="workshop-card">
+                    <img src="/src/images/workshop/photo_2025-03-31_21-05-19.jpg" alt="Workshop Session 2" class="workshop-image">
+                    <p class="workshop-description">Technical Sessions and Hands-on Training</p>
+                </div>
+                <div class="workshop-card">
+                    <img src="/src/images/workshop/image1.jpg" alt="Workshop Session 3" class="workshop-image">
+                    <p class="workshop-description">Campus Engagement Programs</p>
+                </div>
+              </div>
+              <div class="slider-dots">
+                  <span class="dot active"></span>
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+              </div>
           </div>
-          <button class="slider-btn next">
-            <span class="material-icons">chevron_right</span>
-          </button>
-          <div class="slider-dots">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-          </div>
-        </div>
       </div>
-    </section>
+  </section>
 
     <!-- National Recognition Section -->
     <section class="national-recognition-section">
@@ -428,7 +474,8 @@
           </div>
 
           <!-- Right Section: Video -->
-          <div class="video-container">
+          <div class="video-container "
+          id="video-container">
               <iframe 
                   src="https://www.youtube.com/embed/-U_YQ3W50nE?rel=0&controls=1&autoplay=0&mute=0&start=0"
                   frameborder="0"
@@ -463,20 +510,15 @@
         <button class="slider-btn right-btn" onclick="moveSlide(1)">&#10095;</button>
     </div> -->
     <style>
-      body {
-          margin: 0;
-          font-family: Arial, sans-serif;
-          background-color: #f8fafc;
-          padding: 20px;
-      }
+    
       
       .carousel-container {
           position: relative;
           width: 100%;
           overflow: hidden;
-          max-width: 1200px;
-          margin: 40px auto;
-          padding: 0 50px;
+          /* max-width: 1200px; */
+          /* margin: 40px auto; */
+          /* padding: 0 50px; */
           box-sizing: border-box;
       }
       
@@ -497,7 +539,14 @@
       .video-container {
           position: relative;
           width: 100%;
-          padding-top: 56.25%; /* 16:9 Aspect Ratio */
+          padding-top: 56.25%;
+           /* 16:9 Aspect Ratio */
+      }
+      #video-container {
+          position: relative;
+          width: 100%;
+          padding-top: 35%;
+          /* 16:9 Aspect Ratio */
       }
       
       .video-container iframe {
@@ -505,7 +554,7 @@
           top: 0;
           left: 0;
           width: 100%;
-          height: 100%;
+          /* height: 100%; */
           border: none;
       }
       
@@ -513,7 +562,8 @@
           position: absolute;
           top: 50%;
           transform: translateY(-50%);
-          background-color: white;
+          color: #f1f1f1;
+          background-color: #00B4D8;
           border: none;
           border-radius: 50%;
           width: 40px;
@@ -530,6 +580,7 @@
       
       .arrow:hover {
           background-color: #f0f0f0;
+          color: #00B4D8;
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
       }
       
@@ -793,7 +844,7 @@ document.addEventListener("DOMContentLoaded", createDots);
     </section>
 
     <!-- FAQ Section -->
-    <section class="faq-section">
+    <!-- <section class="faq-section">
       <div class="faq-container">
         <h2 class="section-title">Frequently Asked Questions</h2>
         <div class="faq-grid">
@@ -904,194 +955,315 @@ document.addEventListener("DOMContentLoaded", createDots);
           <a href="#" class="btn primary">Contact Us</a>
         </div>
       </div>
-    </section>
+    </section> -->
+<!-- ///New Faq -->
 
-    <!-- Footer Section -->
-    <footer class="vcustomer">
-      <div class="container-fluid">
-        <div class="rows">
-          <!-- Contact Section -->
-          <div class="cols-xl-8 cols-lg-8 cols-md-8 cols-sm-12 cols-xs mb-2">
-            <div class="foo_navs">
-              <h2 class="mb-3 pt-0">Contact Debugshala</h2>
-              <ul class="chennai_footerlist">
-                <li>
-                  <span>Call : </span>
-                  <a href="tel:+918982385539" title="Center Manager" target="_blank">+918982385539</a>
-                  <a href="tel:+919111333207" title="HR" target="_blank">+919111333207</a>
-                </li>
-                <li>
-                  <span>Mail : </span>
-                  <a href="mailto:debugshala@gmail.com" title="Write a mail to Debugshala" target="_blank">debugshala@gmail.com</a>
-                  <a href="mailto:info@debugshala.com" title="Write a mail to Debugshala" target="_blank">info@debugshala.com</a>
-                </li>
-                <li>
-                  <span>Address : </span>
-                  <a href="https://maps.app.goo.gl/VKgv76ZvFft78Fsb9" title="Visit Debugshala" target="_blank">
-                    C.S Naidu Arcade, 204, Greater Kailash Road, Opposite Grotto, Old Palasia, Indore, Madhya Pradesh 452001
-                  </a>
-                </li>
-                <li>
-                  <a href="https://g.page/r/CcsLemNK3jpGEBM/review" title="Google Reviews - Debugshala" target="_blank">
-                    Leave a Review for Debugshala
-                  </a>
-                </li>
-              </ul>
-            </div>
+<div class="faq_8">
+  <div class="responsive-container-block container">
+      <div class="responsive-container-block faqheading-bg">
+          <div class="heading-content">
+              <p class="text-blk faq-heading">Frequently Asked Questions</p>
           </div>
-
-          <!-- Social Media Section -->
-          <div class="cols-xl-4 cols-lg-4 cols-md-4 cols-sm-12 cols-xs mb-2">
-            <div class="foo_navs pb-3">
-              <h2 class="mb-3 pt-0">Shoot a DM at our Social Media Handles!</h2>
-              <div class="footer_socialnav">
-                <ul class="footer_social_list">
-                  <li>
-                    <a href="https://www.facebook.com/debugshala" title="Facebook" rel="noreferrer" target="_blank">
-                      <i class="fa fa-facebook cus_fb" aria-hidden="true"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://twitter.com/debugshala" title="Twitter" rel="noreferrer" target="_blank">
-                      <i class="fa fa-twitter cus_twi" aria-hidden="true"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://www.youtube.com/@debugshala" title="Youtube" rel="noreferrer" target="_blank">
-                      <i class="fa fa-youtube-play cus_play" aria-hidden="true"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://www.linkedin.com/company/debugshala" title="Linkedin" rel="noreferrer" target="_blank">
-                      <i class="fa fa-linkedin cus_linkd" aria-hidden="true"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://www.instagram.com/debugshala/" title="Instagram" rel="noreferrer" target="_blank">
-                      <i class="fa fa-instagram cus_insta" aria-hidden="true"></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- Students Zone Section -->
-          <div class="cols-xl-8 cols-lg-8 cols-md-8 cols-sm-12 cols-xs mb-2">
-            <div class="foo_navs">
-              <h2 class="mb-3 pt-0">Students Zone</h2>
-              <ul class="chennai_footerlist">
-                <li>
-                  <a href="https://ai.debugshala.com/" title="Yukti, Your Own Personal Learning Assistant" target="_blank">
-                    Yukti - AI Assistant
-                  </a>
-                </li>
-                <li>
-                  <a href="https://app.debugshala.com/" title="Your Own Progress Tracking Dashboard" target="_blank">
-                    Study Space - Ultimate AI Productivity Partner
-                  </a>
-                </li>
-                <li>
-                  <a href="https://debugshala.com/compiler/C_compiler.html" title="Compilers for Backend Languages" target="_blank">
-                    Playground - Programming Language Compilers
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Company Section -->
-          <div class="cols-xl-12 cols-lg-12 cols-md-12 cols-sm-12 cols-xs mb-2">
-            <div class="foo_navs">
-              <h2 class="mb-3 pt-0">Company</h2>
-              <ul class="chennai_footerlist">
-                <li>
-                  <a href="https://www.debugshala.com/about-us" title="About Debugshala" target="_blank">About Debugshala</a>
-                </li>
-                <li>
-                  <a href="https://wa.me/+919111333207" title="Share your expertise with others" target="_blank">Become An Instructor</a>
-                </li>
-                <li>
-                  <a href="https://www.thedatacareer.com/candidates/" title="Hire From Us" target="_blank">Hire From Us</a>
-                </li>
-                <li>
-                  <a href="https://www.debugshala.com/privacy-policy" title="Privacy Policy" target="_blank">Privacy Policy</a>
-                </li>
-                <li>
-                  <a href="https://debugshala.com/terms-conditions/" title="Terms & Conditions" target="_blank">Terms & Conditions</a>
-                </li>
-                <li>
-                  <a href="https://www.debugshala.com/refund-policy" title="Refund/Cancellation Policy" target="_blank">Refund Policy</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Top Placement Courses Section -->
-          <div class="cols-xl-12 cols-lg-12 cols-md-12 cols-sm-12 cols-xs mb-2">
-            <div class="foo_navs">
-              <h2 class="mb-3 pt-0">Top Placement Courses in Indore</h2>
-              <ul class="chennai_footerlist">
-                <li>
-                  <a href="https://debugshala.com/data-science-course-in-indore/" target="_blank">Data Science Placement Course in Indore</a>
-                </li>
-                <li>
-                  <a href="https://debugshala.com/data-science-course-in-indore/" target="_blank">Generative AI Placement Course in Indore</a>
-                </li>
-                <li>
-                  <a href="https://debugshala.com/data-science-course-in-indore/" target="_blank">Next.js Development Course in Indore</a>
-                </li>
-                <li>
-                  <a href="https://debugshala.com/data-science-course-in-indore/" target="_blank">React.js Development Course in Indore</a>
-                </li>
-                <li>
-                  <a href="https://debugshala.com/java-full-stack-course-in-indore/" target="_blank">Java Web Development Placement Course in Indore</a>
-                </li>
-                <li>
-                  <a href="https://www.debugshala.com/mern-stack-course-in-indore" target="_blank">MERN Stack Development Placement Course in Indore</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Crash Courses Section -->
-          <div class="cols-xl-12 cols-lg-12 cols-md-12 cols-sm-12 cols-xs mb-2">
-            <div class="foo_navs">
-              <h2 class="mb-3 pt-0">Crash Courses by Debugshala in Indore</h2>
-              <ul class="chennai_footerlist">
-                <li><a href="#" target="_blank">Cybersecurity Course in Indore</a></li>
-                <li><a href="#" target="_blank">Cloud Computing Course in Indore</a></li>
-                <li><a href="#" target="_blank">DevOps Course in Indore</a></li>
-                <li><a href="#" target="_blank">Project Management Course in Indore</a></li>
-                <li><a href="#" target="_blank">Blockchain Course in Indore</a></li>
-                <li><a href="#" target="_blank">UI/UX Designing Course in Indore</a></li>
-                <li><a href="#" target="_blank">Generative AI Course in Indore</a></li>
-                <li><a href="#" target="_blank">Chatbot Development Course in Indore</a></li>
-                <li><a href="#" target="_blank">Linux Administrator Course in Indore</a></li>
-                <li><a href="#" target="_blank">WordPress Development Course in Indore</a></li>
-                <li><a href="#" target="_blank">LinkedIn Optimization Course in Indore</a></li>
-                <li><a href="#" target="_blank">AI Marketer Course in Indore</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- Footer Bottom -->
-        <div class="row footer_row">
-          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs">
-            <div class="footer_details chennailinks">
-              <p>We have convenient location in Indore at Old Palasia. If you reside or seek training in any of these areas, reach out to our career counselors to discover the our branch for you.</p>
-              <p>Adya Nagar, Airport Road, Aishbagh, Anand Nagar, Annapurna Nagar, Arjun Nagar, Bada Ganpati Nagar, Banganga, Bapu Nagar, Bhawarkuan, Bhelpur, Bhopal Road, Brahmin Colony, Chandan Nagar, Chandragupta Colony, Chhatripura, Civil Lines, Dev Nagar, Dhan Mandi, Dhar Road, Ganesh Nagar, Gopal Mandir, Gopalpura, Hanumanganj, Hira Nagar, Indore Cantt, Janakpuri, Jawahar Nagar, Khajrana, Kothi, Lalbagh, Laxmi Nagar, Malharganj, Manoramaganj, Mangalmurti Nagar, Mhow Road, Nehru Nagar, New Palasia, Old Palasia, Pardesipura, Parle Tilak Nagar, Pithampur, Rajendra Nagar, Rajgarh Road, Rakhial, Ratlam Road, Sanchar Nagar, Saraswati Nagar, Sarafa Bazar, Sayaji Nagar, Shivaji Nagar, Sneh Nagar, Subhash Nagar, Tilak Nagar, Trilanga, Vijay Nagar, Yashwant Nagar.</p>
-              <p>We guarantee that investing an extra 15 - 20 minutes in travel will bring you to the premier training institute that is truly worth both your money and career.</p>
-              <p>© 2023 <a href="https://www.debugshala.com/">Debugshala</a>. All Rights Reserved.</p>
-            </div>
-          </div>
-        </div>
       </div>
-      <div class="footer_img">
-        <img src="./src/images/Logos for Web/footer_dbs_1.png" alt="Debugshala Footer Logo">
+      <div class="responsive-container-block dropdown-container-wrapper">
+          <p class="text-blk subheading">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dignissim sit commodo nisl faucibus felis amet
+          </p>
+          <div class="responsive-container-block box-container">
+              <div class="responsive-cell-block wk-desk-4 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+                  <div class="card gray">
+                      <div class="faq-item">
+                          <div class="faq-question" onclick="toggleAnswer(this)">
+                              <h3>What courses do you offer at DebugShala?</h3>
+                              <span class="material-icons toggle-icon">Explor</span>
+                          </div>
+                          <div class="faq-answer" style="display: none;">
+                              <p>We offer comprehensive courses in:</p>
+                              <ul>
+                                  <li>Full Stack Java Development</li>
+                                  <li>MERN Stack Development</li>
+                                  <li>Data Science & Machine Learning</li>
+                                  <li>Cloud Computing & DevOps</li>
+                              </ul>
+                              <p>Each course is designed with industry requirements in mind and includes hands-on projects.</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="responsive-cell-block wk-desk-4 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+                  <div class="card">
+                      <div class="faq-item">
+                          <div class="faq-question" onclick="toggleAnswer(this)">
+                              <h3>How is DebugShala different from other institutes?</h3>
+                              <span class="material-icons toggle-icon">expand_more</span>
+                          </div>
+                          <div class="faq-answer" style="display: none;">
+                              <p>DebugShala stands out with:</p>
+                              <ul>
+                                  <li>1:1 Mentorship from industry experts</li>
+                                  <li>AI-powered learning assistant (Yukti)</li>
+                                  <li>100% Placement assistance</li>
+                                  <li>Industry-relevant curriculum</li>
+                                  <li>Flexible learning schedules</li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="responsive-cell-block wk-desk-4 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+                  <div class="card gray">
+                      <div class="faq-item">
+                          <div class="faq-question" onclick="toggleAnswer(this)">
+                              <h3>What is the duration of the courses?</h3>
+                              <span class="material-icons toggle-icon">expand_more</span>
+                          </div>
+                          <div class="faq-answer" style="display: none;">
+                              <p>Course durations vary based on the program:</p>
+                              <ul>
+                                  <li>Full Stack Development: 6 months</li>
+                                  <li>Data Science: 4 months</li>
+                                  <li>Cloud Computing: 3 months</li>
+                              </ul>
+                              <p>All courses include flexible timing options to accommodate working professionals.</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="responsive-cell-block wk-desk-4 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+                  <div class="card">
+                      <div class="faq-item">
+                          <div class="faq-question" onclick="toggleAnswer(this)">
+                              <h3>Do you provide placement assistance?</h3>
+                              <span class="material-icons toggle-icon">expand_more</span>
+                          </div>
+                          <div class="faq-answer" style="display: none;">
+                              <p>Yes, we provide comprehensive placement support including:</p>
+                              <ul>
+                                  <li>Resume building workshops</li>
+                                  <li>Mock interviews</li>
+                                  <li>Soft skills training</li>
+                                  <li>Direct company connections</li>
+                                  <li>Interview preparation</li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="responsive-cell-block wk-desk-4 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+                  <div class="card gray">
+                      <div class="faq-item">
+                          <div class="faq-question" onclick="toggleAnswer(this)">
+                              <h3>What are the prerequisites for joining?</h3>
+                              <span class="material-icons toggle-icon">expand_more</span>
+                          </div>
+                          <div class="faq-answer" style="display: none;">
+                              <p>Basic requirements include:</p>
+                              <ul>
+                                  <li>Basic computer knowledge</li>
+                                  <li>Dedication to learn</li>
+                                  <li>Minimum 12th pass for most courses</li>
+                                  <li>Basic English communication skills</li>
+                              </ul>
+                              <p>No prior coding experience required for beginner courses.</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="responsive-cell-block wk-desk-4 wk-ipadp-4 wk-tab-6 wk-mobile-12">
+                  <div class="card">
+                      <div class="faq-item">
+                          <div class="faq-question" onclick="toggleAnswer(this)">
+                              <h3>How can I enroll in a course?</h3>
+                              <span class="material-icons toggle-icon">expand_more</span>
+                          </div>
+                          <div class="faq-answer" style="display: none;">
+                              <p>Enrollment process is simple:</p>
+                              <ol>
+                                  <li>Fill out the inquiry form</li>
+                                  <li>Schedule a counseling session</li>
+                                  <li>Choose your course and batch</li>
+                                  <li>Complete the admission process</li>
+                              </ol>
+                              <p>Contact our counselors for personalized guidance.</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<script>
+  function toggleAnswer(questionElement) {
+      const answer = questionElement.nextElementSibling;
+      if (answer.style.display === "block") {
+          answer.style.display = "none";
+      } else {
+          answer.style.display = "block";
+      }
+      questionElement.classList.toggle('active');
+  }
+</script>
+    <!-- Footer Section -->
+  
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-row">
+          <div class="footer-col">
+            <h3>About Us</h3>  <hr> 
+          
+            <a href="#">Our Story</a>
+            <a href="#">Our Team</a>
+            <a href="#">Careers</a>
+            <a href="#">Contact Us</a>
+         
+          </div>
+          
+          <div class="footer-col">
+            <h3>Courses</h3><hr>
+
+            <a href="#">Data Science</a>
+            <a href="#">MERN Stack</a>
+            <a href="#">Java Full Stack</a>
+              <a href="#">Generative AI</a>
+            <a href="#">Data Analytics</a>
+            <a href="#">Next.js Development</a>
+            
+          </div>
+          
+          <div class="footer-col">
+            <h3>Resources</h3> <hr>
+        
+            <a href="#">Blog</a>
+            <a href="#">Success Stories</a>
+            <a href="#">FAQs</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Refund Policy</a>
+           
+          </div>
+          
+          <div class="footer-col">
+            <h3>Contact Us</h3> <hr>
+           
+            <a href="tel:+918982385539">+91 8982385539</a>
+            <a href="mailto:contact@debugshala.com">contact@debugshala.com</a>
+    Hire Talent: <a href="tel:+919111333207">+91-9111333207</a>
+            
+            
+            <div class="social-links">
+              <a href="https://www.facebook.com/debugshala" title="Facebook" rel="noreferrer" target="_blank">
+                <i class="fa fa-facebook cus_fb" aria-hidden="true"></i>
+              </a>
+        
+              <a href="https://twitter.com/debugshala" title="Twitter" rel="noreferrer" target="_blank">
+                <i class="fa fa-twitter cus_twi" aria-hidden="true"></i>
+              </a>
+           
+              <a href="https://www.youtube.com/@debugshala" title="Youtube" rel="noreferrer" target="_blank">
+                <i class="fa fa-youtube-play cus_play" aria-hidden="true"></i>
+              </a>
+            
+              <a href="https://www.linkedin.com/company/debugshala" title="Linkedin" rel="noreferrer" target="_blank">
+                <i class="fa fa-linkedin cus_linkd" aria-hidden="true"></i>
+              </a>
+          
+              <a href="https://www.instagram.com/debugshala/" title="Instagram" rel="noreferrer" target="_blank">
+                <i class="fa fa-instagram cus_insta" aria-hidden="true"></i>
+              </a>
+
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h3>Crash Courses by Debugshala in Indore</h3> <hr>
+            
+            <a href="#" target="_blank">Cybersecurity Course in Indore</a>
+              <a href="#" target="_blank">Cloud Computing Course in Indore</a>
+              <a href="#" target="_blank">DevOps Course in Indore</a>
+              <a href="#" target="_blank">Project Management Course in Indore</a>
+              <a href="#" target="_blank">Blockchain Course in Indore</a>
+                <li><a href="#" target="_blank">UI/UX Designing Course in Indore</a></li>
+              <a href="#" target="_blank">Generative AI Course in Indore</a>
+                <li><a href="#" target="_blank">Chatbot Development Course in Indore</a></li>
+              <a href="#" target="_blank">Linux Administrator Course in Indore</a>
+              <a href="#" target="_blank">WordPress Development Course in Indore</a>
+              <a href="#" target="_blank">LinkedIn Optimization Course in Indore</a>
+              <a href="#" target="_blank">AI Marketer Course in Indore</a>
+            
+          </div>
+          <div class="footer-col">
+            <h3>Company</h3> <hr>
+          
+            
+                <a href="https://www.debugshala.com/about-us" title="About Debugshala" target="_blank">About Debugshala</a>
+              
+            
+                <a href="https://wa.me/+919111333207" title="Share your expertise with others" target="_blank">Become An Instructor</a>
+              
+            
+                <a href="https://www.thedatacareer.com/candidates/" title="Hire From Us" target="_blank">Hire From Us</a>
+              
+            
+                <a href="https://www.debugshala.com/privacy-policy" title="Privacy Policy" target="_blank">Privacy Policy</a>
+              
+            
+                <a href="https://debugshala.com/terms-conditions/" title="Terms & Conditions" target="_blank">Terms & Conditions</a>
+              
+            
+                <a href="https://www.debugshala.com/refund-policy" title="Refund/Cancellation Policy" target="_blank">Refund Policy</a>
+              
+            
+          </div>
+          <div class="footer-col">
+            <h3>Top Placement Courses in Indore</h3> <hr>
+          
+              
+                  <a href="https://debugshala.com/data-science-course-in-indore/" target="_blank">Data Science Placement Course in Indore</a>
+                
+              
+                  <a href="https://debugshala.com/data-science-course-in-indore/" target="_blank">Generative AI Placement Course in Indore</a>
+                
+              
+                  <a href="https://debugshala.com/data-science-course-in-indore/" target="_blank">Next.js Development Course in Indore</a>
+                
+              
+                  <a href="https://debugshala.com/data-science-course-in-indore/" target="_blank">React.js Development Course in Indore</a>
+                
+              
+                  <a href="https://debugshala.com/java-full-stack-course-in-indore/" target="_blank">Java Web Development Placement Course in Indore</a>
+                
+              
+                  <a href="https://www.debugshala.com/mern-stack-course-in-indore" target="_blank">MERN Stack Development Placement Course in Indore</a>
+                
+              
+            
+          </div>
+
+         
+
+
+
+        </div>
+      
+
+        
+        <div class="footer-bottom">
+       
+         
+          <p>We have convenient location in Indore at Old Palasia. If you reside or seek training in any of these areas, reach out to our career counselors to discover the our branch for you.</p>
+          <p>Adya Nagar, Airport Road, Aishbagh, Anand Nagar, Annapurna Nagar, Arjun Nagar, Bada Ganpati Nagar, Banganga, Bapu Nagar, Bhawarkuan, Bhelpur, Bhopal Road, Brahmin Colony, Chandan Nagar, Chandragupta Colony, Chhatripura, Civil Lines, Dev Nagar, Dhan Mandi, Dhar Road, Ganesh Nagar, Gopal Mandir, Gopalpura, Hanumanganj, Hira Nagar, Indore Cantt, Janakpuri, Jawahar Nagar, Khajrana, Kothi, Lalbagh, Laxmi Nagar, Malharganj, Manoramaganj, Mangalmurti Nagar, Mhow Road, Nehru Nagar, New Palasia, Old Palasia, Pardesipura, Parle Tilak Nagar, Pithampur, Rajendra Nagar, Rajgarh Road, Rakhial, Ratlam Road, Sanchar Nagar, Saraswati Nagar, Sarafa Bazar, Sayaji Nagar, Shivaji Nagar, Sneh Nagar, Subhash Nagar, Tilak Nagar, Trilanga, Vijay Nagar, Yashwant Nagar.</p>
+          <p>We guarantee that investing an extra 15 - 20 minutes in travel will bring you to the premier training institute that is truly worth both your money and career.</p>
+          <p>© 2023 <a href="https://www.debugshala.com/">Debugshala</a>. All Rights Reserved.</p>
+          <div class="footer-logo">
+            <img src="https://eclectic-klepon-76aabe.netlify.app/assets/image/footer_dbs_1.png"  alt="Debugshala Logo">
+          </div>
+        </div>
       </div>
     </footer>
+ 
   </div>
   <script type="module" src="/src/main.ts"></script>
 </body>
