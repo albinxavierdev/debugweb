@@ -232,21 +232,35 @@ setInterval(() => {
   updateHackathonSlider(hackathonCurrentIndex);
 }, 5000);
 
-// FAQ Interactions
-const faqItems = document.querySelectorAll('.faq-item');
-
-faqItems.forEach(item => {
-  const question = item.querySelector('.faq-question');
+// FAQ Interactions - Dropdown functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const faqItems = document.querySelectorAll('.faq_8 .faq-item');
   
-  question?.addEventListener('click', () => {
-    // Close other items
-    faqItems.forEach(otherItem => {
-      if (otherItem !== item) {
-        otherItem.classList.remove('active');
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer') as HTMLElement;
+    
+    question?.addEventListener('click', () => {
+      // Toggle active class on question
+      question.classList.toggle('active');
+      
+      // Toggle display of answer
+      if (answer) {
+        answer.classList.toggle('active');
       }
     });
+  });
+  
+  // Apply hover effects to FAQ cards
+  const faqCards = document.querySelectorAll('.faq_8 .card');
+  
+  faqCards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      card.classList.add('hover');
+    });
     
-    // Toggle current item
-    item.classList.toggle('active');
+    card.addEventListener('mouseleave', () => {
+      card.classList.remove('hover');
+    });
   });
 });
