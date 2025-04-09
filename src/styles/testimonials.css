@@ -1,7 +1,7 @@
 /* Testimonials Section Styles */
 
 .testimonials-section {
-  padding: 60px 0;
+  padding: 40px 0;
   background-color: #f5f7fa;
   position: relative;
   overflow: hidden;
@@ -16,7 +16,7 @@
 }
 
 .testimonials-section .section-title {
-  margin-bottom: 48px;
+  margin-bottom: 32px;
 }
 
 /* Testimonial Slider */
@@ -37,11 +37,11 @@
   background-color: var(--primary-white);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   border-radius: 16px;
-  padding: 36px;
-  margin-bottom: 24px;
+  padding: 24px;
+  margin-bottom: 20px;
   position: relative;
   text-align: center;
-  min-height: 240px;
+  min-height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -60,10 +60,10 @@
 }
 
 .testimonial-text {
-  font-size: 18px;
-  line-height: 1.6;
+  font-size: 16px;
+  line-height: 1.5;
   color: var(--text-dark);
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   font-weight: 500;
   position: relative;
 }
@@ -95,13 +95,13 @@
 }
 
 .author-avatar {
-  width: 80px;
-  height: 80px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid white;
+  border: 3px solid white;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .author-name {
@@ -174,25 +174,25 @@
 
 @media (max-width: 768px) {
   .testimonials-section {
-    padding: 40px 0;
+    padding: 32px 0;
   }
   
   .testimonials-section .section-title {
-    margin-bottom: 32px;
+    margin-bottom: 24px;
   }
   
   .testimonial-content {
-    padding: 24px;
-    min-height: auto;
+    padding: 20px;
+    min-height: 180px;
   }
   
   .testimonial-text {
-    font-size: 16px;
+    font-size: 15px;
   }
   
   .author-avatar {
-    width: 64px;
-    height: 64px;
+    width: 56px;
+    height: 56px;
   }
   
   .author-name {
