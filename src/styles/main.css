@@ -771,7 +771,7 @@ button:hover {
   background: linear-gradient(135deg, #0A2647 0%, #144272 100%);
   position: relative;
   overflow: hidden;
-  padding: 80px 0;
+  padding: 60px 0;
 }
 
 .success-stories-section::before {
@@ -789,147 +789,15 @@ button:hover {
   pointer-events: none;
 }
 
-.success-stories-section .section-title {
-  color: white;
-  margin-bottom: 16px;
-  text-align: center;
-}
-
-.success-stories-section .section-description {
-  color: rgba(255, 255, 255, 0.9);
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto 48px;
-  font-size: 18px;
-  line-height: 1.6;
-}
-
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-bottom: 48px;
-  padding: 0 20px;
-}
-
-.testimonial-card {
-  background: #ffffff;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.testimonial-card:hover {
-  transform: translateY(-4px);
-}
-
-.video-wrapper {
-  position: relative;
-  width: 100%;
-  padding-bottom: 177.78%; /* 16:9 aspect ratio for shorts */
-  border-radius: 12px;
-  overflow: hidden;
-  background: #f5f5f5;
-}
-
-.video-wrapper iframe {
+.success-stories-section::after {
+  content: '';
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  border: none;
-}
-
-.testimonial-content {
-  padding: 1.5rem;
-}
-
-.student-info {
-  margin-bottom: 1rem;
-}
-
-.student-info h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #0A2647;
-  margin-bottom: 0.25rem;
-}
-
-.student-role {
-  font-size: 0.875rem;
-  color: #666;
-}
-
-.testimonial-text {
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #333;
-  margin-bottom: 1rem;
-}
-
-.testimonials-cta {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  margin-top: 48px;
-}
-
-@media (max-width: 1200px) {
-  .testimonials-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .success-stories-section {
-    padding: 60px 0;
-  }
-
-  .testimonials-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 0 16px;
-  }
-
-  .video-wrapper {
-    padding: 16px 0;
-  }
-
-  .video-wrapper iframe {
-    width: 280px;
-    height: 498px;
-  }
-
-  .testimonials-cta {
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    padding: 0 16px;
-  }
-
-  .testimonials-cta .btn {
-    width: 100%;
-    max-width: 300px;
-  }
-
-  .testimonial-card {
-    max-width: 400px;
-    margin: 0 auto;
-  }
-  
-  .testimonial-content {
-    padding: 1rem;
-  }
-  
-  .student-info h3 {
-    font-size: 1.125rem;
-  }
-  
-  .testimonial-text {
-    font-size: 0.875rem;
-  }
+  top: 0;
+  left: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 /* FAQ Section */
