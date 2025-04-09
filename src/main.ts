@@ -152,7 +152,7 @@ setInterval(() => {
     currentIndex = 0;
   }
   updateSlider();
-}, 5000);
+}, 2000);
 
 // Workshop Slider
 const workshopSlider = document.querySelector('.workshop-cards') as HTMLElement;
@@ -191,7 +191,7 @@ workshopDots.forEach((dot, index) => {
 setInterval(() => {
   workshopCurrentIndex = (workshopCurrentIndex + 1) % workshopDots.length;
   updateWorkshopSlider(workshopCurrentIndex);
-}, 5000);
+}, 2000);
 
 // Hackathon Slider
 const hackathonSlider = document.querySelector('.hackathon-cards') as HTMLElement;
@@ -230,37 +230,30 @@ hackathonDots.forEach((dot, index) => {
 setInterval(() => {
   hackathonCurrentIndex = (hackathonCurrentIndex + 1) % hackathonDots.length;
   updateHackathonSlider(hackathonCurrentIndex);
-}, 5000);
+}, 2000);
 
-// FAQ Interactions - Dropdown functionality
-document.addEventListener('DOMContentLoaded', function() {
-  const faqItems = document.querySelectorAll('.faq_8 .faq-item');
-  
-  faqItems.forEach(item => {
-    const question = item.querySelector('.faq-question');
-    const answer = item.querySelector('.faq-answer') as HTMLElement;
+// FAQ Functionality
+const faqItems = document.querySelectorAll('.faq-item');
+
+faqItems.forEach(item => {
+  item.addEventListener('click', () => {
+    const isActive = item.classList.contains('active');
     
-    question?.addEventListener('click', () => {
-      // Toggle active class on question
-      question.classList.toggle('active');
-      
-      // Toggle display of answer
-      if (answer) {
-        answer.classList.toggle('active');
+    // Close all other FAQs
+    faqItems.forEach(otherItem => {
+      if (otherItem !== item) {
+        otherItem.classList.remove('active');
       }
     });
-  });
-  
-  // Apply hover effects to FAQ cards
-  const faqCards = document.querySelectorAll('.faq_8 .card');
-  
-  faqCards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
-      card.classList.add('hover');
-    });
     
-    card.addEventListener('mouseleave', () => {
-      card.classList.remove('hover');
-    });
+    // Toggle current FAQ
+    item.classList.toggle('active');
+    
+    // If opening this FAQ, scroll it into view
+    if (!isActive) {
+      const yOffset = -100; // Offset from the top of the viewport
+      const y = item.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
   });
 });
