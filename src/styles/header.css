@@ -16,13 +16,13 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 8px 20px;
-  height: 56px;
+  height: 72px;
 }
 
 .logo-container {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .ds-logo {
@@ -32,7 +32,8 @@
 }
 
 .logo {
-  height: 32px;
+  height: 48px;
+  width: auto;
 }
 
 .main-nav {
@@ -123,20 +124,23 @@
 }
 
 .login-btn {
-  padding: 8px 20px;
+  padding: 10px 24px;
   border-radius: 6px;
-  background-color: #00B4D8;
+  background-color: #0A2647;
   color: #fff;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 14px;
   transition: all 0.2s ease;
   border: none;
+  height: 40px;
+  display: flex;
+  align-items: center;
 }
 
 .login-btn:hover {
-  background-color: #0096C7;
+  background-color: #001c3d;
   transform: translateY(-1px);
-  box-shadow: 0 2px 4px rgba(0, 180, 216, 0.1);
+  box-shadow: 0 2px 4px rgba(10, 38, 71, 0.2);
 }
 
 /* Announcement Bar */
@@ -199,7 +203,7 @@
 @media (max-width: 768px) {
   .header-container {
     padding: 8px 16px;
-    height: 48px;
+    height: 64px;
   }
 
   .main-nav {
@@ -207,7 +211,7 @@
   }
 
   .logo {
-    height: 26px;
+    height: 38px;
   }
 
   .ds-logo {
@@ -226,7 +230,7 @@
   }
 
   .login-btn {
-    padding: 6px 16px;
-    font-size: 13px;
+    padding: 8px 20px;
+    height: 38px;
   }
 }

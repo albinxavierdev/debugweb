@@ -1,18 +1,30 @@
+
 /* Footer Styles */
 .footer {
-background-color: #00000077;
-color: #f6f6f5;
-padding: 60px 0 20px;
-font-family: 'Inter', sans-serif;
-text-align: left;
+  background-color: #0A2647;
+  color: #f6f6f5;
+  padding: 30px 40px;
+  font-family: Arial, sans-serif;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: left;
 }
 
 .footer-container {
 max-width: 1200px;
-margin: 0 auto;
+/* margin: 0 auto; */
 padding: 0 20px;
-}
+/* padding-left: 0px; */
 
+}
+.footer-container  a{
+  padding-right: 10px;
+  border-right: 1px solid #ffffff;
+}
+.footer-container .social-links a {
+ padding-right: 0px;
+ border: none;
+}
 .footer-row {
 /* display: flex;
 flex-wrap: wrap;
@@ -25,24 +37,28 @@ width: 100%;
 /* max-width: 250px; */
 margin-bottom: 30px;
 }
-
+#icon-divs{
+  display: flex;
+  flex-direction: row;
+ 
+  
+  justify-content: space-between;
+  align-items: right;
+  margin-bottom: 20px;
+  margin-top: 0px;
+  margin-left: 10px;
+  
+}
 .footer-col h3 {
-color: #0000009e;
+  color: #ffffff;
 font-size: 18px;
 font-weight: 600;
-margin-bottom: 20px;
+margin-bottom: 4px;
 position: relative;
+line-height: 20px;
 }
 
-/* .footer-col h3:after {
-content: '';
-position: absolute;
-left: 0;
-bottom: -8px;
-width: 40px;
-height: 2px;
-background-color: #206dd4;
-} */
+
 
 .footer-col ul {
 list-style: none;
@@ -64,8 +80,8 @@ transition: all 0.3s ease;
 text-decoration: none;
 color: rgb(255, 255, 255);
 margin-right: 10px;
-padding-right: 10px;
-border-right: 1px solid rgb(255, 255, 255);
+/* padding-right: 0px; */
+/* border-right: 1px solid rgb(255, 255, 255); */
 }
 
 .footer-col ul li a:hover {
@@ -81,7 +97,10 @@ margin-bottom: 15px;
 
 .social-links {
 display: flex;
-margin-top: 20px;
+flex-direction: column;
+align-items: flex-start;
+margin-top: 0px;
+margin-left: 160px;
 }
 
 .social-links a {
@@ -91,7 +110,7 @@ justify-content: center;
 height: 36px;
 width: 36px;
 background-color: rgba(255, 255, 255, 0.1);
-margin-right: 10px;
+margin-right: 0px;
 border-radius: 50%;
 color: #f6f6f5;
 transition: all 0.3s ease;
@@ -142,4 +161,25 @@ width: 100%;
 .social-links {
 justify-content: center;
 }
+}
+/* #icon-divs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end; 
+  margin-bottom: 20px;
+  margin-top: 0px;
+  margin-left: 10px;
+} */
+
+/* Change direction to column on smaller screens (e.g., below 768px) */
+@media (max-width: 768px) {
+  #icon-divs {
+    flex-direction: column;
+margin-left: 0px;
+  }
+  .social-links{
+    margin-left: 0px;
+    margin-top:32px;
+  }
 }

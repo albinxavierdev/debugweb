@@ -152,7 +152,7 @@ setInterval(() => {
     currentIndex = 0;
   }
   updateSlider();
-}, 5000);
+}, 2000);
 
 // Workshop Slider
 const workshopSlider = document.querySelector('.workshop-cards') as HTMLElement;
@@ -191,7 +191,7 @@ workshopDots.forEach((dot, index) => {
 setInterval(() => {
   workshopCurrentIndex = (workshopCurrentIndex + 1) % workshopDots.length;
   updateWorkshopSlider(workshopCurrentIndex);
-}, 5000);
+}, 2000);
 
 // Hackathon Slider
 const hackathonSlider = document.querySelector('.hackathon-cards') as HTMLElement;
@@ -230,23 +230,30 @@ hackathonDots.forEach((dot, index) => {
 setInterval(() => {
   hackathonCurrentIndex = (hackathonCurrentIndex + 1) % hackathonDots.length;
   updateHackathonSlider(hackathonCurrentIndex);
-}, 5000);
+}, 2000);
 
-// FAQ Interactions
+// FAQ Functionality
 const faqItems = document.querySelectorAll('.faq-item');
 
 faqItems.forEach(item => {
-  const question = item.querySelector('.faq-question');
-  
-  question?.addEventListener('click', () => {
-    // Close other items
+  item.addEventListener('click', () => {
+    const isActive = item.classList.contains('active');
+    
+    // Close all other FAQs
     faqItems.forEach(otherItem => {
       if (otherItem !== item) {
         otherItem.classList.remove('active');
       }
     });
     
-    // Toggle current item
+    // Toggle current FAQ
     item.classList.toggle('active');
+    
+    // If opening this FAQ, scroll it into view
+    if (!isActive) {
+      const yOffset = -100; // Offset from the top of the viewport
+      const y = item.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
   });
 });
