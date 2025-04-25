@@ -1,6 +1,110 @@
 // Initialize the application
 console.log("CCBP Clone App initialized");
 
+// Import configuration
+import config from './scripts/config';
+
+// Enquiry Form Submission to n8n Webhook
+document.addEventListener("DOMContentLoaded", () => {
+  const enquiryForm = document.querySelector('#enquiryForm') as HTMLFormElement;
+  
+  if (enquiryForm) {
+    const statusElement = document.getElementById('submission-status') as HTMLDivElement;
+    
+    enquiryForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      
+      // Show debug info in development mode
+      if (config.isDevelopment) {
+        console.log('Form submission in development mode');
+      }
+      
+      const nameInput = document.getElementById('name') as HTMLInputElement;
+      const phoneInput = document.getElementById('phone') as HTMLInputElement;
+      const emailInput = document.getElementById('email') as HTMLInputElement;
+      const courseInput = document.getElementById('course') as HTMLSelectElement;
+      
+      // Log form values for debugging
+      console.log('Form values:', {
+        name: nameInput.value,
+        phone: phoneInput.value,
+        email: emailInput.value,
+        course: courseInput.value,
+        courseText: courseInput.options[courseInput.selectedIndex].text
+      });
+      
+      const submitButton = enquiryForm.querySelector('.form-submit-btn') as HTMLButtonElement;
+      const originalButtonText = submitButton.innerHTML;
+      
+      // Update UI to show loading state
+      submitButton.innerHTML = 'Submitting...';
+      submitButton.disabled = true;
+      statusElement.className = 'submission-status loading';
+      statusElement.textContent = 'Submitting your enquiry...';
+      
+      try {
+        // Use the webhook URL from config with GET parameters
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), config.apiTimeoutMs);
+        
+        // Build query parameters for GET request
+        const params = new URLSearchParams();
+        params.append('name', nameInput.value);
+        params.append('phone', phoneInput.value);
+        params.append('email', emailInput.value);
+        params.append('course', courseInput.value);
+        params.append('courseText', courseInput.options[courseInput.selectedIndex].text);
+        params.append('timestamp', new Date().toISOString());
+        params.append('source', 'website_hero_form');
+        
+        // Construct the full URL with query parameters
+        const webhookUrl = `${config.n8nWebhookUrl}?${params.toString()}`;
+        console.log('Submitting to webhook URL:', webhookUrl);
+        
+        const response = await fetch(webhookUrl, {
+          method: 'GET',
+          signal: controller.signal
+        });
+        
+        clearTimeout(timeoutId);
+        
+        if (response.ok) {
+          // Handle successful submission
+          statusElement.className = 'submission-status success';
+          statusElement.textContent = 'Thank you! Your enquiry has been submitted successfully.';
+          enquiryForm.reset();
+        } else {
+          // Handle server errors
+          statusElement.className = 'submission-status error';
+          statusElement.textContent = 'Something went wrong. Please try again later.';
+        }
+      } catch (error) {
+        // Handle network errors
+        console.error('Error submitting form:', error);
+        let errorMessage = 'Network error. Please check your connection and try again.';
+        
+        if (error instanceof DOMException && error.name === 'AbortError') {
+          errorMessage = 'Request timed out. Please try again later.';
+        }
+        
+        statusElement.className = 'submission-status error';
+        statusElement.textContent = errorMessage;
+      } finally {
+        // Restore button state
+        submitButton.innerHTML = originalButtonText;
+        submitButton.disabled = false;
+        
+        // Hide status message after 5 seconds on success
+        if (statusElement.classList.contains('success')) {
+          setTimeout(() => {
+            statusElement.style.display = 'none';
+          }, 5000);
+        }
+      }
+    });
+  }
+});
+
 // Tabs functionality
 document.addEventListener("DOMContentLoaded", () => {
   // Tab switching

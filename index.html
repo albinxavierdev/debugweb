@@ -103,13 +103,13 @@
           <a href="/reviews" class="nav-link">Success Stories</a>
         </nav>
         <div class="header-cta">
-          <a href="https://learning.ccbp.in/" class="login-btn">Chat With Us</a>
+          <a href="https://wa.me/918982385539?text=Enquiry%20for%20Placement%20%26%20Training%20Courses" class="login-btn">Chat With Us</a>
         </div>
       </div>
       <div class="announcement-bar">
         <span>NEW</span>
         <p>For internships, we are hiring students for the batch of 2025</p>
-        <a href="https://www.weforum.org/press/2024/06/applied-ai-and-cutting-edge-technology-start-ups-dominate-this-year-s-100-new-members-of-the-world-economic-forum-s-technology-pioneers-community/" class="announcement-link">Know more</a>
+        <a href="https://forms.gle/tRTrZP4sWkQmPqqw6" class="announcement-link">Know more</a>
       </div>
     </header>
 
@@ -171,7 +171,7 @@
           <div class="hero-form-section">
             <div class="enquiry-form">
               <h2>Book a Free Counselling Session</h2>
-              <form>
+              <form id="enquiryForm">
                 <div class="form-group">
                   <label for="name">Your Name</label>
                   <input type="text" id="name" name="name" placeholder="Enter your name" required>
@@ -188,12 +188,13 @@
                   <label for="course">Select Course</label>
                   <select id="course" name="course" required>
                     <option value="">Choose a course</option>
-                    <option value="school">School Program (8th-12th)</option>
-                    <option value="fullstack">Full Stack Development</option>
-                    <option value="datascience">Data Science</option>
+                    <option value="kids">Coding for Kids</option>
+                    <option value="placement">1-Month Placement Oriented Course</option>
+                    <option value="intensive">Full Intensive Training Course</option>
                   </select>
                 </div>
                 <button type="submit" class="form-submit-btn">Submit Enquiry →</button>
+                <div id="submission-status" class="submission-status"></div>
               </form>
             </div>
           </div>
@@ -406,8 +407,8 @@
           <h3>Join Our Success Stories</h3>
           <p>Take the first step towards your dream tech career and success in the IT industry.</p>
         </div>
-        <a href="#" class="cta-button">
-          <span>Explore More</span>
+        <a href="https://wa.me/918982385539?text=Hi%20Debugshala,%20I'm%20interested%20in%20booking%20a%20free%20counselling%20session" class="cta-button" target="_blank">
+          <span>Book Free Counselling Session</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#0A2647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
@@ -490,8 +491,8 @@
           <h3>Experience What Makes Us Different</h3>
           <p>Get personalized mentorship and AI-assisted learning to accelerate your tech career.</p>
         </div>
-        <a href="#" class="cta-button">
-          <span>Explore More</span>
+        <a href="https://wa.me/918982385539?text=Hi%20Debugshala,%20I'm%20interested%20in%20booking%20a%20free%20counselling%20session" class="cta-button" target="_blank">
+          <span>Book Free Counselling Session</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#0A2647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
@@ -528,7 +529,7 @@
         
         <div id="companies-cta" style="display: flex; justify-content: center; gap: 16px; margin-top: 40px;">
             <a href="#" class="btn primary" style="padding: 12px 24px; border-radius: 8px; font-weight: 500; text-decoration: none; background: #0A2647; color: white; transition: all 0.3s ease;">View Success Stories</a>
-            <a href="#" class="btn secondary" style="padding: 12px 24px; border-radius: 8px; font-weight: 500; text-decoration: none; background: #f1f5f9; color: #1e293b; border: 1px solid #e2e8f0; transition: all 0.3s ease;">Explore Programs</a>
+            <a href="#courses-roadmap-section" class="btn secondary" style="padding: 12px 24px; border-radius: 8px; font-weight: 500; text-decoration: none; background: #f1f5f9; color: #1e293b; border: 1px solid #e2e8f0; transition: all 0.3s ease;">Explore Programs</a>
         </div>
       </div>
     </section>
@@ -553,8 +554,8 @@
           <h3>Get Hired By Top Companies</h3>
           <p>Join DebugShala and open doors to career opportunities with leading tech companies.</p>
         </div>
-        <a href="#" class="cta-button">
-          <span>Explore More</span>
+        <a href="https://wa.me/918982385539?text=Hi%20Debugshala,%20I'm%20interested%20in%20booking%20a%20free%20counselling%20session" class="cta-button" target="_blank">
+          <span>Book Free Counselling Session</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#0A2647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
@@ -569,15 +570,223 @@
         
         <!-- Tab Navigation -->
         <div class="course-tabs">
-          <button class="tab-btn active" onclick="switchTab(0)">Coding for Kids</button>
-          <button class="tab-btn" onclick="switchTab(1)">Upskilling Programs</button>
-          <button class="tab-btn" onclick="switchTab(2)">Placement Programs</button>
+          <button class="tab-btn" onclick="switchTab(2)">Coding for Kids</button>
+          <button class="tab-btn" onclick="switchTab(1)">Placement Oriented Course</button>
+          <button class="tab-btn active" onclick="switchTab(0)">Intensive Training Course</button>
         </div>
 
         <!-- Tab Content -->
         <div class="tab-content">
-          <!-- Coding for Kids Tab -->
+          <!-- Intensive Training Course Tab -->
           <div class="tab-pane active">
+            <div class="courses-grid">
+              <!-- Row 1: Data-focused courses -->
+              <!-- Data Analytics -->
+              <div class="course-card">
+                <div class="course-icon">📊</div>
+                <h3 class="course-title">Data Analytics with Python</h3>
+                <p class="course-description">Master data analysis, visualization, and statistical methods using Python and popular libraries.</p>
+                <div class="course-stats">
+                  <span class="stat-item">⏱️ 6 months</span>
+                  <span class="stat-item">📚 60+ modules</span>
+                </div>
+                <div class="course-tags">
+                  <span class="course-tag">Python</span>
+                  <span class="course-tag">Pandas</span>
+                  <span class="course-tag">Visualization</span>
+                </div>
+                <div class="course-footer">
+                  <span class="course-status">High Demand</span>
+                  <a href="https://wa.me/918982385539?text=Hi%20Debugshala,%20I'm%20interested%20in%20the%20Data%20Analytics%20with%20Python%20course" class="explore-course" target="_blank">Learn more →</a>
+                </div>
+              </div>
+
+              <!-- Data Science with AI -->
+              <div class="course-card">
+                <div class="course-icon">🤖</div>
+                <h3 class="course-title">Data Science with AI</h3>
+                <p class="course-description">Comprehensive training in data analysis, machine learning, and artificial intelligence.</p>
+                <div class="course-stats">
+                  <span class="stat-item">⏱️ 6 months</span>
+                  <span class="stat-item">📚 70+ modules</span>
+                </div>
+                <div class="course-tags">
+                  <span class="course-tag">Python</span>
+                  <span class="course-tag">ML</span>
+                  <span class="course-tag">Deep Learning</span>
+                </div>
+                <div class="course-footer">
+                  <span class="course-status">Advanced Course</span>
+                  <a href="https://wa.me/918982385539?text=Hi%20Debugshala,%20I'm%20interested%20in%20the%20Data%20Science%20with%20AI%20course" class="explore-course" target="_blank">Learn more →</a>
+                </div>
+              </div>
+
+              <!-- Generative AI -->
+              <div class="course-card">
+                <div class="course-icon">✨</div>
+                <h3 class="course-title">Generative AI for Professionals</h3>
+                <p class="course-description">Learn to build and deploy generative AI models for practical business applications.</p>
+                <div class="course-stats">
+                  <span class="stat-item">⏱️ 6 months</span>
+                  <span class="stat-item">📚 65+ modules</span>
+                </div>
+                <div class="course-tags">
+                  <span class="course-tag">GPT</span>
+                  <span class="course-tag">LLMs</span>
+                  <span class="course-tag">Diffusion</span>
+                </div>
+                <div class="course-footer">
+                  <span class="course-status">Cutting Edge</span>
+                  <a href="https://wa.me/918982385539?text=Hi%20Debugshala,%20I'm%20interested%20in%20the%20Generative%20AI%20for%20Professionals%20course" class="explore-course" target="_blank">Learn more →</a>
+                </div>
+              </div>
+
+              <!-- Row 2: Web Development courses -->
+              <!-- React.js Development -->
+              <div class="course-card">
+                <div class="course-icon">⚛️</div>
+                <h3 class="course-title">React.js Development</h3>
+                <p class="course-description">Specialize in building interactive UIs with React.js and modern frontend tools.</p>
+                <div class="course-stats">
+                  <span class="stat-item">⏱️ 6 months</span>
+                  <span class="stat-item">📚 55+ modules</span>
+                </div>
+                <div class="course-tags">
+                  <span class="course-tag">React</span>
+                  <span class="course-tag">Redux</span>
+                  <span class="course-tag">Next.js</span>
+                </div>
+                <div class="course-footer">
+                  <span class="course-status">Popular Choice</span>
+                  <a href="https://wa.me/918982385539?text=Hi%20Debugshala,%20I'm%20interested%20in%20the%20React.js%20Development%20course" class="explore-course" target="_blank">Learn more →</a>
+                </div>
+              </div>
+
+              <!-- MERN Stack -->
+              <div class="course-card">
+                <div class="course-icon">💻</div>
+                <h3 class="course-title">MERN Stack Development</h3>
+                <p class="course-description">Build modern web applications with MongoDB, Express, React, and Node.js.</p>
+                <div class="course-stats">
+                  <span class="stat-item">⏱️ 6 months</span>
+                  <span class="stat-item">📚 75+ modules</span>
+                </div>
+                <div class="course-tags">
+                  <span class="course-tag">React</span>
+                  <span class="course-tag">Node.js</span>
+                  <span class="course-tag">MongoDB</span>
+                </div>
+                <div class="course-footer">
+                  <span class="course-status">In Demand</span>
+                  <a href="https://wa.me/918982385539?text=Hi%20Debugshala,%20I'm%20interested%20in%20the%20MERN%20Stack%20Development%20course" class="explore-course" target="_blank">Learn more →</a>
+                </div>
+              </div>
+
+              <!-- Java Full Stack -->
+              <div class="course-card">
+                <div class="course-icon">☕</div>
+                <h3 class="course-title">Java Full Stack Development</h3>
+                <p class="course-description">Master Java ecosystem with Spring Boot, Hibernate, and modern frontend technologies.</p>
+                <div class="course-stats">
+                  <span class="stat-item">⏱️ 6 months</span>
+                  <span class="stat-item">📚 80+ modules</span>
+                </div>
+                <div class="course-tags">
+                  <span class="course-tag">Java</span>
+                  <span class="course-tag">Spring</span>
+                  <span class="course-tag">Angular</span>
+                </div>
+                <div class="course-footer">
+                  <span class="course-status">Enterprise Ready</span>
+                  <a href="https://wa.me/918982385539?text=Hi%20Debugshala,%20I'm%20interested%20in%20the%20Java%20Full%20Stack%20Development%20course" class="explore-course" target="_blank">Learn more →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Placement Oriented Course Tab -->
+          <div class="tab-pane">
+            <div class="courses-grid">
+              <!-- Assessment Card -->
+              <div class="course-card">
+                <div class="course-icon">📝</div>
+                <h3 class="course-title">Technical Assessment</h3>
+                <p class="course-description">Comprehensive evaluation of technical skills and employability factors with detailed feedback.</p>
+                <div class="course-features">
+                  <ul>
+                    <li>Technical skill assessment</li>
+                    <li>Aptitude evaluation</li>
+                    <li>Personality profiling</li>
+                    <li>Gap analysis report</li>
+                  </ul>
+                </div>
+                <div class="course-footer">
+                  <span class="course-status">First Step</span>
+                  <a href="#" class="explore-course">Learn more →</a>
+                </div>
+              </div>
+
+              <!-- Technical Training Card -->
+              <div class="course-card">
+                <div class="course-icon">🎯</div>
+                <h3 class="course-title">15 Days Technical Training</h3>
+                <p class="course-description">Intensive technical training focused on in-demand skills and technologies.</p>
+                <div class="course-features">
+                  <ul>
+                    <li>Targeted skill development</li>
+                    <li>Industry-specific training</li>
+                    <li>Hands-on coding practice</li>
+                    <li>Technical problem solving</li>
+                  </ul>
+                </div>
+                <div class="course-footer">
+                  <span class="course-status">Technical Focus</span>
+                  <a href="#" class="explore-course">Learn more →</a>
+                </div>
+              </div>
+
+              <!-- Placement Preparation Card -->
+              <div class="course-card">
+                <div class="course-icon">🚀</div>
+                <h3 class="course-title">15 Days Placement Preparation</h3>
+                <p class="course-description">Focused preparation for technical interviews and placement processes.</p>
+                <div class="course-features">
+                  <ul>
+                    <li>DSA practice & coaching</li>
+                    <li>Mock technical interviews</li>
+                    <li>Coding tests preparation</li>
+                    <li>Problem-solving strategies</li>
+                  </ul>
+                </div>
+                <div class="course-footer">
+                  <span class="course-status">Interview Prep</span>
+                  <a href="#" class="explore-course">Learn more →</a>
+                </div>
+              </div>
+
+              <!-- HR Assistance Card -->
+              <div class="course-card">
+                <div class="course-icon">👥</div>
+                <h3 class="course-title">HR Assistance & Interviews</h3>
+                <p class="course-description">Complete placement support with HR training and interview coordination.</p>
+                <div class="course-features">
+                  <ul>
+                    <li>Resume building</li>
+                    <li>HR interview techniques</li>
+                    <li>Salary negotiation</li>
+                    <li>Interview scheduling</li>
+                  </ul>
+                </div>
+                <div class="course-footer">
+                  <span class="course-status">Final Stage</span>
+                  <a href="#" class="explore-course">Learn more →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Coding for Kids Tab -->
+          <div class="tab-pane">
             <div class="courses-grid">
               <!-- Fundamentals Card -->
               <div class="course-card">
@@ -585,7 +794,7 @@
                 <h3 class="course-title">Programming Fundamentals</h3>
                 <p class="course-description">Start your coding journey with basics of programming, logic building, and problem-solving skills.</p>
                 <div class="course-stats">
-                  <span class="stat-item">⏱️ 12 weeks</span>
+                  <span class="stat-item">⏱️ 4 months</span>
                   <span class="stat-item">📚 30+ modules</span>
                 </div>
                 <div class="course-tags">
@@ -608,7 +817,7 @@
                 <h3 class="course-title">Tech Specialization</h3>
                 <p class="course-description">Choose your path in Data Science or Full Stack Development with hands-on projects.</p>
                 <div class="course-stats">
-                  <span class="stat-item">⏱️ 16 weeks</span>
+                  <span class="stat-item">⏱️ 4 months</span>
                   <span class="stat-item">📚 40+ modules</span>
                 </div>
                 <div class="course-tags">
@@ -631,7 +840,7 @@
                 <h3 class="course-title">Internships & Projects</h3>
                 <p class="course-description">Get real-world experience through guided projects and internship opportunities.</p>
                 <div class="course-stats">
-                  <span class="stat-item">⏱️ 8 weeks</span>
+                  <span class="stat-item">⏱️ 4 months</span>
                   <span class="stat-item">📚 20+ projects</span>
                 </div>
                 <div class="course-tags">
@@ -644,173 +853,6 @@
                 </div>
                 <div class="course-footer">
                   <span class="course-status">Advanced Level</span>
-                  <a href="#" class="explore-course">Learn more →</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Upskilling Programs Tab -->
-          <div class="tab-pane">
-            <div class="courses-grid">
-              <!-- Data Analytics -->
-              <div class="course-card">
-                <div class="course-icon">📊</div>
-                <h3 class="course-title">Data Analytics</h3>
-                <p class="course-description">Master data analysis tools, visualization, and statistical methods for informed decision-making.</p>
-                <div class="course-stats">
-                  <span class="stat-item">⏱️ 16 weeks</span>
-                  <span class="stat-item">📚 50+ modules</span>
-                </div>
-                <div class="course-tags">
-                  <span class="course-tag">Python</span>
-                  <span class="course-tag">SQL</span>
-                  <span class="course-tag">Tableau</span>
-                </div>
-                <div class="course-footer">
-                  <span class="course-status">Enrolling Now</span>
-                  <a href="#" class="explore-course">Learn more →</a>
-                </div>
-              </div>
-
-              <!-- Data Science with AI -->
-              <div class="course-card">
-                <div class="course-icon">🤖</div>
-                <h3 class="course-title">Data Science with AI</h3>
-                <p class="course-description">Learn advanced ML algorithms, AI applications, and deep learning techniques.</p>
-                <div class="course-stats">
-                  <span class="stat-item">⏱️ 24 weeks</span>
-                  <span class="stat-item">📚 70+ modules</span>
-                </div>
-                <div class="course-tags">
-                  <span class="course-tag">ML</span>
-                  <span class="course-tag">AI</span>
-                  <span class="course-tag">Deep Learning</span>
-                </div>
-                <div class="course-footer">
-                  <span class="course-status">Advanced Course</span>
-                  <a href="#" class="explore-course">Learn more →</a>
-                </div>
-              </div>
-
-              <!-- MERN Stack -->
-              <div class="course-card">
-                <div class="course-icon">💻</div>
-                <h3 class="course-title">MERN Stack Development</h3>
-                <p class="course-description">Build modern web applications with MongoDB, Express, React, and Node.js.</p>
-                <div class="course-stats">
-                  <span class="stat-item">⏱️ 20 weeks</span>
-                  <span class="stat-item">📚 60+ modules</span>
-                </div>
-                <div class="course-tags">
-                  <span class="course-tag">React</span>
-                  <span class="course-tag">Node.js</span>
-                  <span class="course-tag">MongoDB</span>
-                </div>
-                <div class="course-footer">
-                  <span class="course-status">In Demand</span>
-                  <a href="#" class="explore-course">Learn more →</a>
-                </div>
-              </div>
-
-              <!-- React.js Development -->
-              <div class="course-card">
-                <div class="course-icon">⚛️</div>
-                <h3 class="course-title">React.js Development</h3>
-                <p class="course-description">Specialize in building interactive UIs with React.js and modern frontend tools.</p>
-                <div class="course-stats">
-                  <span class="stat-item">⏱️ 12 weeks</span>
-                  <span class="stat-item">📚 40+ modules</span>
-                </div>
-                <div class="course-tags">
-                  <span class="course-tag">React</span>
-                  <span class="course-tag">Redux</span>
-                  <span class="course-tag">Next.js</span>
-                </div>
-                <div class="course-footer">
-                  <span class="course-status">Popular Choice</span>
-                  <a href="#" class="explore-course">Learn more →</a>
-                </div>
-              </div>
-
-              <!-- Java Full Stack -->
-              <div class="course-card">
-                <div class="course-icon">☕</div>
-                <h3 class="course-title">Java Full Stack</h3>
-                <p class="course-description">Master Java ecosystem with Spring Boot, Hibernate, and modern frontend technologies.</p>
-                <div class="course-stats">
-                  <span class="stat-item">⏱️ 24 weeks</span>
-                  <span class="stat-item">📚 80+ modules</span>
-                </div>
-                <div class="course-tags">
-                  <span class="course-tag">Java</span>
-                  <span class="course-tag">Spring</span>
-                  <span class="course-tag">Angular</span>
-                </div>
-                <div class="course-footer">
-                  <span class="course-status">Enterprise Ready</span>
-                  <a href="#" class="explore-course">Learn more →</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Placement Programs Tab -->
-          <div class="tab-pane">
-            <div class="courses-grid">
-              <!-- Assessment Card -->
-              <div class="course-card">
-                <div class="course-icon">📝</div>
-                <h3 class="course-title">Employability & Technical Assessment</h3>
-                <p class="course-description">Comprehensive evaluation of technical skills and employability factors with detailed feedback.</p>
-                <div class="course-features">
-                  <ul>
-                    <li>Technical skill assessment</li>
-                    <li>Aptitude evaluation</li>
-                    <li>Personality profiling</li>
-                    <li>Gap analysis report</li>
-                  </ul>
-                </div>
-                <div class="course-footer">
-                  <span class="course-status">First Step</span>
-                  <a href="#" class="explore-course">Learn more →</a>
-                </div>
-              </div>
-
-              <!-- Training Card -->
-              <div class="course-card">
-                <div class="course-icon">🎯</div>
-                <h3 class="course-title">Personalized Training</h3>
-                <p class="course-description">Customized training program based on assessment results and industry requirements.</p>
-                <div class="course-features">
-                  <ul>
-                    <li>Targeted skill development</li>
-                    <li>Industry-specific training</li>
-                    <li>Mock interviews</li>
-                    <li>Project portfolio building</li>
-                  </ul>
-                </div>
-                <div class="course-footer">
-                  <span class="course-status">Core Program</span>
-                  <a href="#" class="explore-course">Learn more →</a>
-                </div>
-              </div>
-
-              <!-- HR Assistance Card -->
-              <div class="course-card">
-                <div class="course-icon">👥</div>
-                <h3 class="course-title">HR Assistance & Interview Prep</h3>
-                <p class="course-description">Complete placement support with HR training and interview preparation.</p>
-                <div class="course-features">
-                  <ul>
-                    <li>Resume building</li>
-                    <li>Interview techniques</li>
-                    <li>Salary negotiation</li>
-                    <li>Company-specific prep</li>
-                  </ul>
-                </div>
-                <div class="course-footer">
-                  <span class="course-status">Final Stage</span>
                   <a href="#" class="explore-course">Learn more →</a>
                 </div>
               </div>
@@ -868,6 +910,31 @@
         opacity: 1;
       }
 
+      /* Default grid layout */
+      .courses-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      /* Special layout for Placement Oriented Course - 4 columns */
+      .tab-pane:nth-child(2) .courses-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 1200px) {
+        .tab-pane:nth-child(2) .courses-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .tab-pane:nth-child(2) .courses-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
       .course-features ul {
         list-style: none;
         padding: 0;
@@ -887,6 +954,181 @@
         left: 0;
         color: #22c55e;
       }
+
+      /* Workshop and Hackathon Slider Styles */
+      .workshop-slider, .hackathon-slider {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        padding: 20px 0;
+        margin: 0 auto;
+        box-sizing: border-box; /* Ensure padding is included in width calculation */
+      }
+
+      /* Ensure container has enough space for all cards */
+      .workshop-slider {
+        min-height: 350px; /* Increased height for better visibility */
+        padding-bottom: 50px; /* Extra space at bottom to avoid cuts */
+      }
+
+      .hackathon-slider {
+        min-height: 370px; /* Increased height for better visibility */
+        padding-bottom: 50px; /* Extra space at bottom to avoid cuts */
+      }
+
+      .workshop-cards, .hackathon-cards {
+        display: flex;
+        overflow-x: hidden; /* Changed from auto to hidden to prevent scrollbar */
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        gap: 20px;
+        padding: 10px 20px; /* Added horizontal padding */
+        /* Hide scrollbar */
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+        width: fit-content; /* Ensure width fits content for proper animation */
+      }
+
+      /* Hide scrollbar for Chrome, Safari and Opera */
+      .workshop-cards::-webkit-scrollbar, .hackathon-cards::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* Adjust the animation duration for each slider */
+      .workshop-cards {
+        animation: scrollWorkshop 40s linear infinite;
+        width: fit-content; /* Ensure width fits content for proper animation */
+      }
+
+      .hackathon-cards {
+        animation: scrollHackathon 40s linear infinite;
+        width: fit-content; /* Ensure width fits content for proper animation */
+      }
+
+      .workshop-card, .hackathon-card {
+        flex: 0 0 300px;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        background: white;
+        transition: transform 0.3s ease;
+        scroll-snap-align: start;
+        height: auto; /* Allow height to adjust based on content */
+        display: flex;
+        flex-direction: column;
+        margin-right: 5px; /* Add slight margin to prevent touching */
+      }
+      
+      .workshop-card:hover, .hackathon-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+      
+      /* Add animation play state control on hover to pause when needed */
+      .workshop-slider:hover .workshop-cards,
+      .hackathon-slider:hover .hackathon-cards {
+        animation-play-state: paused;
+      }
+      
+      /* Define a wrapper for better animation effect */
+      @keyframes scrollWorkshop {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(calc(-325px * 5)); /* 5 cards with all gaps and margins */
+        }
+      }
+
+      @keyframes scrollHackathon {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(calc(-325px * 6)); /* 6 cards with all gaps and margins */
+        }
+      }
+
+      .workshop-image, .hackathon-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .workshop-description {
+        padding: 15px;
+        font-size: 15px;
+        color: #1e293b;
+        font-weight: 500;
+        min-height: 70px; /* Ensure consistent height for descriptions */
+        display: flex;
+        align-items: center;
+        line-height: 1.4;
+      }
+
+      .hackathon-info {
+        padding: 15px;
+      }
+
+      .hackathon-info h3 {
+        font-size: 18px;
+        margin-bottom: 8px;
+        color: #0A2647;
+      }
+
+      .hackathon-info p {
+        font-size: 14px;
+        color: #64748b;
+        line-height: 1.4;
+      }
+
+      .slider-dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 20px;
+      }
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: rgba(10, 38, 71, 0.2);
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .dot.active {
+        background-color: #0A2647;
+      }
+
+      @keyframes scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%); /* Move exactly half of the total width for seamless loop */
+        }
+      }
+
+      /* Adjust the animation duration for each slider */
+      .workshop-cards {
+        animation: scroll 30s linear infinite;
+        width: fit-content; /* Ensure width fits content for proper animation */
+      }
+
+      .hackathon-cards {
+        animation: scroll 25s linear infinite;
+        width: fit-content; /* Ensure width fits content for proper animation */
+      }
+
+      @media (max-width: 768px) {
+        .workshop-card, .hackathon-card {
+          flex: 0 0 260px;
+        }
+      }
     </style>
 
     <script>
@@ -904,64 +1146,58 @@
     <!-- Awards Section -->
     <section class="awards-section">
       <div class="awards-container">
-          <h2 class="section-title">College Sections and Workshops</h2>
+          <h2 class="section-title">College Seminars and Sessions</h2>
           <div class="workshop-slider">
               <div class="workshop-cards">
                   <!-- Card 1 -->
                   <div class="workshop-card">
-                      <img src="/src/images/workshop/1736486106378.jpeg" alt="Workshop Session 1" class="workshop-image">
-                      <p class="workshop-description">Full Stack Development Workshop at Engineering Colleges</p>
+                      <img src="/src/images/workshop/1736486106378.jpeg" alt="HackTour 2025" class="workshop-image">
+                      <p class="workshop-description">HackTour 2025 @ Sage University</p>
                   </div>
                   <!-- Card 2 -->
                   <div class="workshop-card">
-                      <img src="/src/images/workshop/photo_2025-03-31_21-05-19.jpg" alt="Workshop Session 2" class="workshop-image">
-                      <p class="workshop-description">Technical Sessions and Hands-on Training</p>
+                      <img src="/src/images/workshop/photo_2025-03-31_21-05-19.jpg" alt="Web Development with AI" class="workshop-image">
+                      <p class="workshop-description">Web Development with AI @ Sage University</p>
                   </div>
                   <!-- Card 3 -->
                   <div class="workshop-card">
-                      <img src="/src/images/workshop/image1.jpg" alt="Workshop Session 3" class="workshop-image">
-                      <p class="workshop-description">Campus Engagement Programs</p>
+                      <img src="/src/images/workshop/image1.jpg" alt="RAG & Agentic AI Workshop" class="workshop-image">
+                      <p class="workshop-description">RAG & Agentic AI Workshop</p>
                   </div>
                   <!-- Card 4 -->
                   <div class="workshop-card">
-                    <img src="/src/images/workshop/1736486106378.jpeg" alt="Workshop Session 1" class="workshop-image">
-                    <p class="workshop-description">Full Stack Development Workshop at Engineering Colleges</p>
+                    <img src="/src/images/workshop/1736486106378.jpeg" alt="Industry Visit" class="workshop-image">
+                    <p class="workshop-description">Industry Visit by Patel Group of Institutions</p>
                 </div>
-                <!-- Card 2 -->
+                  <!-- Card 5 -->
                 <div class="workshop-card">
-                    <img src="/src/images/workshop/photo_2025-03-31_21-05-19.jpg" alt="Workshop Session 2" class="workshop-image">
-                    <p class="workshop-description">Technical Sessions and Hands-on Training</p>
+                    <img src="/src/images/workshop/photo_2025-03-31_21-05-19.jpg" alt="AI & Web Development Workshop" class="workshop-image">
+                    <p class="workshop-description">AI & Web Development Workshop @Shri Vaishnav Vidhyapeet Vishwavidhyalaya</p>
                 </div>
-                <!-- Card 3 -->
+                  <!-- Card 1 repeat -->
                 <div class="workshop-card">
-                    <img src="/src/images/workshop/image1.jpg" alt="Workshop Session 3" class="workshop-image">
-                    <p class="workshop-description">Campus Engagement Programs</p>
+                      <img src="/src/images/workshop/1736486106378.jpeg" alt="HackTour 2025" class="workshop-image">
+                      <p class="workshop-description">HackTour 2025 @ Sage University</p>
                 </div>
-                  <!-- Duplicate Cards for Infinite Scrolling -->
+                  <!-- Card 2 repeat -->
                   <div class="workshop-card">
-                      <img src="/src/images/workshop/1736486106378.jpeg" alt="Workshop Session 1" class="workshop-image">
-                      <p class="workshop-description">Full Stack Development Workshop at Engineering Colleges</p>
+                      <img src="/src/images/workshop/photo_2025-03-31_21-05-19.jpg" alt="Web Development with AI" class="workshop-image">
+                      <p class="workshop-description">Web Development with AI @ Sage University</p>
                   </div>
+                  <!-- Card 3 repeat -->
                   <div class="workshop-card">
-                      <img src="/src/images/workshop/photo_2025-03-31_21-05-19.jpg" alt="Workshop Session 2" class="workshop-image">
-                      <p class="workshop-description">Technical Sessions and Hands-on Training</p>
+                      <img src="/src/images/workshop/image1.jpg" alt="RAG & Agentic AI Workshop" class="workshop-image">
+                      <p class="workshop-description">RAG & Agentic AI Workshop</p>
                   </div>
+                  <!-- Card 4 repeat -->
                   <div class="workshop-card">
-                      <img src="/src/images/workshop/image1.jpg" alt="Workshop Session 3" class="workshop-image">
-                      <p class="workshop-description">Campus Engagement Programs</p>
+                    <img src="/src/images/workshop/1736486106378.jpeg" alt="Industry Visit" class="workshop-image">
+                    <p class="workshop-description">Industry Visit by Patel Group of Institutions</p>
           </div>
-
+                  <!-- Card 5 repeat -->
                   <div class="workshop-card">
-                    <img src="/src/images/workshop/1736486106378.jpeg" alt="Workshop Session 1" class="workshop-image">
-                    <p class="workshop-description">Full Stack Development Workshop at Engineering Colleges</p>
-          </div>
-                <div class="workshop-card">
-                    <img src="/src/images/workshop/photo_2025-03-31_21-05-19.jpg" alt="Workshop Session 2" class="workshop-image">
-                    <p class="workshop-description">Technical Sessions and Hands-on Training</p>
-            </div>
-                <div class="workshop-card">
-                    <img src="/src/images/workshop/image1.jpg" alt="Workshop Session 3" class="workshop-image">
-                    <p class="workshop-description">Campus Engagement Programs</p>
+                    <img src="/src/images/workshop/photo_2025-03-31_21-05-19.jpg" alt="AI & Web Development Workshop" class="workshop-image">
+                    <p class="workshop-description">AI & Web Development Workshop @Shri Vaishnav Vidhyapeet Vishwavidhyalaya</p>
           </div>
         </div>
               <div class="slider-dots">
@@ -993,8 +1229,8 @@
           <h3>Get Hands-on Workshop Experience</h3>
           <p>Learn practical skills with our specialized workshops and college training sessions.</p>
         </div>
-        <a href="#" class="cta-button">
-          <span>Book Free Demo</span>
+        <a href="https://wa.me/918982385539?text=Hi%20Debugshala,%20I'm%20interested%20in%20booking%20a%20free%20counselling%20session" class="cta-button" target="_blank">
+          <span>Book Free Counselling Session</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#0A2647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
@@ -1005,34 +1241,111 @@
     <!-- National Recognition Section -->
     <section class="national-recognition-section">
       <div class="national-recognition-container">
-        <h2 class="section-title">National Level Recognition for Debugshala Students</h2>
+        <h2 class="section-title">Workshops, Hackathons & Buildathons</h2>
         <div class="hackathon-slider">
-          <button class="slider-btn prev">
-            <span class="material-icons">chevron_left</span>
-          </button>
           <div class="hackathon-cards">
             <!-- Card 1 -->
             <div class="hackathon-card">
-              <img src="/src/images/hackathons/1734369939526.jpeg" alt="Hackathon Event 1" class="hackathon-image">
+              <img src="/src/images/hackathons/1734369939526.jpeg" alt="GenAI Buildathon" class="hackathon-image">
               <div class="hackathon-info">
-                <h3>India's Biggest GenAI Buildathon</h3>
+                <h3>India's Biggest GenAI Buildathon by 100x Engineers</h3>
                 <p>Students showcasing innovative solutions at prestigious hackathon events</p>
               </div>
             </div>
             <!-- Card 2 -->
             <div class="hackathon-card">
-              <img src="/src/images/hackathons/h1.jpeg" alt="Hackathon Event 2" class="hackathon-image">
+              <img src="/src/images/hackathons/h1.jpeg" alt="GenAI Buildathon" class="hackathon-image">
               <div class="hackathon-info">
-                <h3>Tech Innovation Challenge</h3>
-                <p>Our students winning accolades for their exceptional projects</p>
+                <h3>GenAI Buildathon by Debugshala</h3>
+                <p>Practical hands-on experience with generative AI technologies</p>
+              </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="hackathon-card">
+              <img src="/src/images/hackathons/1734369939526.jpeg" alt="Content Creation" class="hackathon-image">
+              <div class="hackathon-info">
+                <h3>Why to be a Content Creator in 2025</h3>
+                <p>Exploring opportunities in the growing field of technical content creation</p>
+          </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="hackathon-card">
+              <img src="/src/images/hackathons/h1.jpeg" alt="Career Elevation" class="hackathon-image">
+              <div class="hackathon-info">
+                <h3>Beyond Coding, Elevate your career in AI & IT</h3>
+                <p>Skills and strategies for advancing in AI and technology careers</p>
+              </div>
+            </div>
+            <!-- Card 5 -->
+            <div class="hackathon-card">
+              <img src="/src/images/hackathons/1734369939526.jpeg" alt="Blockchain" class="hackathon-image">
+              <div class="hackathon-info">
+                <h3>Mastering Blockchain in 2025</h3>
+                <p>Learning the latest blockchain technologies and implementation strategies</p>
+              </div>
+            </div>
+            <!-- Card 6 -->
+            <div class="hackathon-card">
+              <img src="/src/images/hackathons/h1.jpeg" alt="Soft Skills" class="hackathon-image">
+              <div class="hackathon-info">
+                <h3>Importance of Soft Skills in Career Development</h3>
+                <p>How communication and leadership complement technical expertise</p>
+              </div>
+            </div>
+            
+            <!-- Second set of cards (duplicates for infinite scrolling) -->
+            <!-- Card 1 repeat -->
+            <div class="hackathon-card">
+              <img src="/src/images/hackathons/1734369939526.jpeg" alt="GenAI Buildathon" class="hackathon-image">
+              <div class="hackathon-info">
+                <h3>India's Biggest GenAI Buildathon by 100x Engineers</h3>
+                <p>Students showcasing innovative solutions at prestigious hackathon events</p>
+              </div>
+            </div>
+            <!-- Card 2 repeat -->
+            <div class="hackathon-card">
+              <img src="/src/images/hackathons/h1.jpeg" alt="GenAI Buildathon" class="hackathon-image">
+              <div class="hackathon-info">
+                <h3>GenAI Buildathon by Debugshala</h3>
+                <p>Practical hands-on experience with generative AI technologies</p>
+              </div>
+            </div>
+            <!-- Card 3 repeat -->
+            <div class="hackathon-card">
+              <img src="/src/images/hackathons/1734369939526.jpeg" alt="Content Creation" class="hackathon-image">
+              <div class="hackathon-info">
+                <h3>Why to be a Content Creator in 2025</h3>
+                <p>Exploring opportunities in the growing field of technical content creation</p>
+              </div>
+            </div>
+            <!-- Card 4 repeat -->
+            <div class="hackathon-card">
+              <img src="/src/images/hackathons/h1.jpeg" alt="Career Elevation" class="hackathon-image">
+              <div class="hackathon-info">
+                <h3>Beyond Coding, Elevate your career in AI & IT</h3>
+                <p>Skills and strategies for advancing in AI and technology careers</p>
+              </div>
+            </div>
+            <!-- Card 5 repeat -->
+            <div class="hackathon-card">
+              <img src="/src/images/hackathons/1734369939526.jpeg" alt="Blockchain" class="hackathon-image">
+              <div class="hackathon-info">
+                <h3>Mastering Blockchain in 2025</h3>
+                <p>Learning the latest blockchain technologies and implementation strategies</p>
+              </div>
+            </div>
+            <!-- Card 6 repeat -->
+            <div class="hackathon-card">
+              <img src="/src/images/hackathons/h1.jpeg" alt="Soft Skills" class="hackathon-image">
+              <div class="hackathon-info">
+                <h3>Importance of Soft Skills in Career Development</h3>
+                <p>How communication and leadership complement technical expertise</p>
               </div>
             </div>
           </div>
-          <button class="slider-btn next">
-            <span class="material-icons">chevron_right</span>
-          </button>
           <div class="slider-dots">
             <span class="dot active"></span>
+            <span class="dot"></span>
             <span class="dot"></span>
           </div>
         </div>
@@ -1059,8 +1372,8 @@
           <h3>Join Award-Winning Tech Programs</h3>
           <p>Be part of nationally recognized programs that build exceptional tech talent..</p>
         </div>
-        <a href="#" class="cta-button">
-          <span>Book Free Demo</span>
+        <a href="https://wa.me/918982385539?text=Hi%20Debugshala,%20I'm%20interested%20in%20booking%20a%20free%20counselling%20session" class="cta-button" target="_blank">
+          <span>Book Free Counselling Session</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#0A2647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
@@ -1508,594 +1821,135 @@
 </style>
  <!-- // -->
 
- <div class="carousel-container">
-  <h3 class="shorts-title">Student Success Stories</h3>
-  <button class="arrow arrow-left" id="arrow-left">&#10094;</button>
-  <div class="carousel" id="carousel">
-      <!-- YouTube Shorts Items -->
-      <div class="carousel-item shorts-item">
+<section class="student-testimonials-section">
+  <div class="container">
+    <h2 class="section-title">Student Success Stories</h2>
+    <div class="carousel-container">
+      <button class="arrow arrow-left" id="arrow-left">&#10094;</button>
+      <div class="carousel" id="carousel">
+        <!-- YouTube Shorts Items -->
+        <div class="carousel-item shorts-item">
           <div class="video-container shorts">
-              <iframe 
-                  src="https://www.youtube.com/embed/sgC3UhcU4-4"
-                  allow="autoplay; encrypted-media" 
-                  allowfullscreen
-                  title="DebugShala Student Testimonial Short">
-              </iframe>
+            <iframe 
+              src="https://www.youtube.com/embed/sgC3UhcU4-4"
+              allow="autoplay; encrypted-media" 
+              allowfullscreen
+              title="DebugShala Student Testimonial Short">
+            </iframe>
           </div>
-      </div>
-      
-      <div class="carousel-item shorts-item">
+        </div>
+        
+        <div class="carousel-item shorts-item">
           <div class="video-container shorts">
-              <iframe 
-                  src="https://www.youtube.com/embed/oLSJ-q8SpCQ"
-                  allow="autoplay; encrypted-media" 
-                  allowfullscreen
-                  title="DebugShala Student Story">
-              </iframe>
-            </div>
-          </div>
-
-      <div class="carousel-item shorts-item">
-          <div class="video-container shorts">
-              <iframe 
-                  src="https://www.youtube.com/embed/XzSRJoRRPOQ"
-                  allow="autoplay; encrypted-media" 
-                  allowfullscreen
-                  title="DebugShala Student Success">
-              </iframe>
-                </div>
-                </div>
-      
-      <div class="carousel-item shorts-item">
-          <div class="video-container shorts">
-              <iframe 
-                  src="https://www.youtube.com/embed/DmU2bH6xCyk"
-                  allow="autoplay; encrypted-media" 
-                  allowfullscreen
-                  title="DebugShala Student Journey">
-              </iframe>
-              </div>
-            </div>
-      
-      <div class="carousel-item shorts-item">
-          <div class="video-container shorts">
-              <iframe 
-                  src="https://www.youtube.com/embed/7vVHNrU80Eg"
-                  allow="autoplay; encrypted-media" 
-                  allowfullscreen
-                  title="DebugShala Student Testimonial">
-              </iframe>
+            <iframe 
+              src="https://www.youtube.com/embed/oLSJ-q8SpCQ"
+              allow="autoplay; encrypted-media" 
+              allowfullscreen
+              title="DebugShala Student Story">
+            </iframe>
           </div>
         </div>
 
-      <div class="carousel-item shorts-item">
+        <div class="carousel-item shorts-item">
           <div class="video-container shorts">
-              <iframe 
-                  src="https://www.youtube.com/embed/_QYcA4NNdZk"
-                  allow="autoplay; encrypted-media" 
-                  allowfullscreen
-                  title="DebugShala Student Achievement">
-              </iframe>
+            <iframe 
+              src="https://www.youtube.com/embed/XzSRJoRRPOQ"
+              allow="autoplay; encrypted-media" 
+              allowfullscreen
+              title="DebugShala Student Success">
+            </iframe>
           </div>
-      </div>
-      
-      <div class="carousel-item shorts-item">
+        </div>
+        
+        <div class="carousel-item shorts-item">
           <div class="video-container shorts">
-              <iframe 
-                  src="https://www.youtube.com/embed/CDGQkEQOyhY"
-                  allow="autoplay; encrypted-media" 
-                  allowfullscreen
-                  title="DebugShala Student Experience">
-              </iframe>
+            <iframe 
+              src="https://www.youtube.com/embed/DmU2bH6xCyk"
+              allow="autoplay; encrypted-media" 
+              allowfullscreen
+              title="DebugShala Student Journey">
+            </iframe>
           </div>
-      </div>
-      
-      <div class="carousel-item shorts-item">
+        </div>
+        
+        <div class="carousel-item shorts-item">
           <div class="video-container shorts">
-              <iframe 
-                  src="https://www.youtube.com/embed/sA8j3daNnoQ"
-                  allow="autoplay; encrypted-media" 
-                  allowfullscreen
-                  title="DebugShala Student Review">
-              </iframe>
+            <iframe 
+              src="https://www.youtube.com/embed/7vVHNrU80Eg"
+              allow="autoplay; encrypted-media" 
+              allowfullscreen
+              title="DebugShala Student Testimonial">
+            </iframe>
           </div>
-      </div>
-      
-      <div class="carousel-item shorts-item">
+        </div>
+
+        <div class="carousel-item shorts-item">
           <div class="video-container shorts">
-              <iframe 
-                  src="https://www.youtube.com/embed/jtnqF5WOIH0"
-                  allow="autoplay; encrypted-media" 
-                  allowfullscreen
-                  title="DebugShala Student Journey">
-              </iframe>
+            <iframe 
+              src="https://www.youtube.com/embed/_QYcA4NNdZk"
+              allow="autoplay; encrypted-media" 
+              allowfullscreen
+              title="DebugShala Student Achievement">
+            </iframe>
           </div>
-      </div>
-      
-      <div class="carousel-item shorts-item">
+        </div>
+        
+        <div class="carousel-item shorts-item">
           <div class="video-container shorts">
-              <iframe 
-                  src="https://www.youtube.com/embed/BxrD6k2is0M"
-                  allow="autoplay; encrypted-media" 
-                  allowfullscreen
-                  title="DebugShala Student Testimonial">
-              </iframe>
+            <iframe 
+              src="https://www.youtube.com/embed/CDGQkEQOyhY"
+              allow="autoplay; encrypted-media" 
+              allowfullscreen
+              title="DebugShala Student Experience">
+            </iframe>
           </div>
+        </div>
+        
+        <div class="carousel-item shorts-item">
+          <div class="video-container shorts">
+            <iframe 
+              src="https://www.youtube.com/embed/sA8j3daNnoQ"
+              allow="autoplay; encrypted-media" 
+              allowfullscreen
+              title="DebugShala Student Review">
+            </iframe>
+          </div>
+        </div>
+        
+        <div class="carousel-item shorts-item">
+          <div class="video-container shorts">
+            <iframe 
+              src="https://www.youtube.com/embed/jtnqF5WOIH0"
+              allow="autoplay; encrypted-media" 
+              allowfullscreen
+              title="DebugShala Student Journey">
+            </iframe>
+          </div>
+        </div>
+        
+        <div class="carousel-item shorts-item">
+          <div class="video-container shorts">
+            <iframe 
+              src="https://www.youtube.com/embed/BxrD6k2is0M"
+              allow="autoplay; encrypted-media" 
+              allowfullscreen
+              title="DebugShala Student Testimonial">
+            </iframe>
+          </div>
+        </div>
       </div>
+      <button class="arrow arrow-right" id="arrow-right">&#10095;</button>
+      <div class="slider-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
   </div>
-  <button class="arrow arrow-right" id="arrow-right">&#10095;</button>
-</div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-      const carousel = document.getElementById('carousel');
-      const items = document.querySelectorAll('.carousel-item');
-      const leftBtn = document.getElementById('arrow-left');
-      const rightBtn = document.getElementById('arrow-right');
-      
-      // Calculate item width including margin
-      const itemWidth = items[0].offsetWidth + parseInt(window.getComputedStyle(items[0]).marginRight);
-      
-      let currentIndex = 0;
-      const totalItems = items.length;
-      
-      // Calculate visible items based on screen width
-      function calculateVisibleItems() {
-          const containerWidth = carousel.parentElement.offsetWidth;
-          return Math.max(1, Math.floor(containerWidth / itemWidth));
-      }
-      
-      let visibleItems = calculateVisibleItems();
-      let maxIndex = totalItems - visibleItems;
-      
-      // Initialize
-      updateButtonStates();
-      
-      // Event listeners
-      leftBtn.addEventListener('click', scrollLeft);
-      rightBtn.addEventListener('click', scrollRight);
-      
-      // Handle window resize
-      window.addEventListener('resize', function() {
-          // Recalculate visible items on resize
-          visibleItems = calculateVisibleItems();
-          maxIndex = totalItems - visibleItems;
-          
-          if (currentIndex > maxIndex) {
-              currentIndex = maxIndex;
-              updateCarouselPosition();
-          }
-          
-          updateButtonStates();
-          adjustForMobile();
-      });
-      
-      // Auto-scroll every 6 seconds
-      let autoScrollInterval = setInterval(autoScroll, 6000);
-      
-      function autoScroll() {
-          if (currentIndex < maxIndex) {
-              currentIndex++;
-          } else {
-              currentIndex = 0;
-          }
-          updateCarouselPosition();
-          updateButtonStates();
-      }
-      
-      // Pause auto-scroll on hover
-      carousel.parentElement.addEventListener('mouseenter', function() {
-          clearInterval(autoScrollInterval);
-      });
-      
-      // Resume auto-scroll on mouse leave
-      carousel.parentElement.addEventListener('mouseleave', function() {
-          autoScrollInterval = setInterval(autoScroll, 6000);
-      });
-      
-      function scrollLeft() {
-          if (currentIndex > 0) {
-              currentIndex--;
-              updateCarouselPosition();
-          }
-          updateButtonStates();
-          pauseAllVideos();
-      }
-      
-      function scrollRight() {
-          if (currentIndex < maxIndex) {
-              currentIndex++;
-              updateCarouselPosition();
-          }
-          updateButtonStates();
-          pauseAllVideos();
-      }
-      
-      function updateCarouselPosition() {
-          const scrollAmount = currentIndex * itemWidth;
-          carousel.style.transform = `translateX(-${scrollAmount}px)`;
-      }
-      
-      function updateButtonStates() {
-          // Disable left button at the beginning
-          leftBtn.disabled = currentIndex === 0;
-          leftBtn.style.opacity = currentIndex === 0 ? '0.5' : '1';
-          
-          // Disable right button at the end
-          rightBtn.disabled = currentIndex >= maxIndex;
-          rightBtn.style.opacity = currentIndex >= maxIndex ? '0.5' : '1';
-      }
-      
-      // Function to pause all videos when scrolling
-      function pauseAllVideos() {
-          const iframes = document.querySelectorAll('iframe');
-          iframes.forEach(iframe => {
-              // Save the current src
-              const src = iframe.src;
-              // Reset the src to pause the video
-              iframe.src = src;
-          });
-      }
-
-      // Auto-adjust height for mobile
-      function adjustForMobile() {
-          if (window.innerWidth <= 768) {
-              document.querySelectorAll('.video-container.shorts').forEach(container => {
-                  container.style.paddingTop = '100%'; // Square format on mobile
-              });
-          } else {
-              document.querySelectorAll('.video-container.shorts').forEach(container => {
-                  container.style.paddingTop = '177.78%'; // 9:16 on desktop
-              });
-          }
-      }
-      
-      // Call on load
-      adjustForMobile();
-  });
-</script>
-    
+</section>
 
 <!-- CTA Banner after YouTube Shorts -->
-<!-- <div class="cta-banner">
-  <div class="cta-banner-container">
-    <img src="/src/images/logos/Debugshala-icon.png" alt="Debugshala Logo" class="cta-logo">
-    <div class="cta-content">
-      <h3>Watch Student Success Stories</h3>
-      <p>See how our students transformed their careers through our industry-focused training.</p>
-    </div>
-    <a href="#" class="cta-button">Book Free Demo →</a>
-  </div>
-</div> -->
-
-<div class="cta-banner">
-  <div class="cta-banner-container">
-    <div class="cta-logo-container">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCqMVy3E9Ck0skvy3H-TciQf9m5PmNmXgLdg&s" alt="Debugshala Logo" class="cta-logo">
-    </div>
-    <div class="cta-content">
-      <h3>Watch Student Success Stories</h3>
-      <p>See how our students transformed their careers through our industry-focused training.</p>
-    </div>
-    <a href="#" class="cta-button">
-      <span>Book Free Demo</span>
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#0A2647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </a>
-  </div>
-</div>
-    <!-- FAQ Section -->
-    <section class="faq-section">
-      <div class="container">
-        <h2 class="section-title">Frequently Asked Questions</h2>
-        <div class="faq-grid">
-          <!-- FAQ Item 1 -->
-                <div class="faq-item">
-            <div class="faq-question">
-              What are the prerequisites for joining?
-              <span class="faq-icon"></span>
-                  </div>
-                  <div class="faq-answer">
-              <ul>
-                <li>Basic computer knowledge and internet usage</li>
-                <li>Minimum 12th pass for most courses</li>
-                <li>Basic English communication skills</li>
-                <li>Dedication to learn and grow</li>
-                <li>No prior coding experience required for beginner courses</li>
-                <li>For advanced courses, basic programming knowledge is recommended</li>
-                    </ul>
-              </div>
-            </div>
-            
-          <!-- FAQ Item 2 -->
-                <div class="faq-item">
-            <div class="faq-question">
-              How long are the courses?
-              <span class="faq-icon"></span>
-                  </div>
-                  <div class="faq-answer">
-              Course durations vary based on the program:
-              <ul>
-                <li>Full Stack Development: 24 weeks</li>
-                <li>Data Science & Analytics: 16 weeks</li>
-                <li>Cloud Computing: 12 weeks</li>
-                <li>React.js Development: 12 weeks</li>
-                <li>Java Full Stack: 24 weeks</li>
-                    </ul>
-              All courses include flexible timing options to accommodate working professionals and students.
-              </div>
-            </div>
-            
-          <!-- FAQ Item 3 -->
-                <div class="faq-item">
-            <div class="faq-question">
-              Do you provide placement assistance?
-              <span class="faq-icon"></span>
-                  </div>
-                  <div class="faq-answer">
-              Yes, we provide comprehensive placement support including:
-              <ul>
-                <li>Resume building and optimization</li>
-                <li>Mock interview sessions</li>
-                <li>Soft skills training</li>
-                <li>Technical interview preparation</li>
-                <li>Direct connections with hiring partners</li>
-                <li>Placement guarantee for eligible candidates</li>
-                    </ul>
-              </div>
-            </div>
-            
-          <!-- FAQ Item 4 -->
-                <div class="faq-item">
-            <div class="faq-question">
-              What is the mode of training?
-              <span class="faq-icon"></span>
-                  </div>
-                  <div class="faq-answer">
-              We offer multiple training modes:
-              <ul>
-                <li>Online Live Classes: Interactive sessions with real-time doubt solving</li>
-                <li>Offline Classroom: Traditional learning at our center</li>
-                <li>Hybrid Mode: Combination of online and offline sessions</li>
-                <li>Recorded Sessions: Available for revision and flexible learning</li>
-                <li>1:1 Mentoring: Personalized guidance sessions</li>
-                <li>Weekend Batches: For working professionals</li>
-                    </ul>
-              </div>
-            </div>
-            
-          <!-- FAQ Item 5 -->
-                <div class="faq-item">
-            <div class="faq-question">
-              Are there any certifications provided?
-              <span class="faq-icon"></span>
-                  </div>
-                  <div class="faq-answer">
-              Yes, we provide multiple certifications:
-              <ul>
-                <li>Course Completion Certificate</li>
-                <li>Project Completion Certificates</li>
-                <li>Industry-recognized Skill Certifications</li>
-                <li>Technology-specific Certifications</li>
-                <li>Internship Completion Certificate</li>
-                <li>Additional certifications from our industry partners</li>
-                    </ul>
-              All certificates are digitally verifiable and industry-recognized.
-              </div>
-            </div>
-            
-          <!-- FAQ Item 6 -->
-                <div class="faq-item">
-            <div class="faq-question">
-              What kind of projects will I work on?
-              <span class="faq-icon"></span>
-                  </div>
-                  <div class="faq-answer">
-              Our project-based learning includes:
-              <ul>
-                <li>Real-world Industry Projects</li>
-                <li>Capstone Projects with actual clients</li>
-                <li>Individual Portfolio Projects</li>
-                <li>Team Collaboration Projects</li>
-                <li>Industry-standard Tools and Technologies</li>
-                <li>Live Project Deployments</li>
-              </ul>
-              Projects are designed to give you hands-on experience and build a strong portfolio.
-                  </div>
-                </div>
-              </div>
-            </div>
-    </section>
-
-    <!-- Replace CTA Button -->
-    <div class="cta-container" style="display: none;">
-        <a href="https://forms.ccbp.in/public/form/talk-to-career-expert" class="btn primary">Request a Callback</a>
-    </div>
-
-  
-
-        <!-- Footer Section -->
-  
-
-        <footer class="footer">
-          <div class="footer-container">
-            <div class="footer-row">
-    
-              <div class="footer-col" id="icon-divs" >
-                <div>            <h3 >Contact Us</h3> <hr style="margin-bottom: 20px;"
-                  >
-               
-               <span> Call :</span> <a href="tel:+918982385539">+91 8982385539</a>
-                <a href="mailto:contact@debugshala.com">contact@debugshala.com</a>
-        Hire Talent: <a href="tel:+919111333207">+91-9111333207</a>
-    <br>
-        <samp>Address :</samp> <hr style="margin-bottom: 8px;">
-               
-        <a href="tel:+918982385539">C.S Naidu Arcade, 204, Greater Kailash Road, Opposite Grotto, Old Palasia, Indore, Madhya Pradesh 452001</a>
-        <a href="mailto:contact@debugshala.com">Leave a Review for Debugshala</a>
-    
-                
-                   </div>
-    
-                <div class="social-links">
-                  <h3>Shoot a DM at our Social Media Handles!</h3> 
-    
-    <div>
-                  <a href="https://www.facebook.com/debugshala" title="Facebook" rel="noreferrer" target="_blank">
-                    <i class="fa fa-facebook cus_fb" aria-hidden="true"></i>
-                  </a>
-            
-                  <a href="https://twitter.com/debugshala" title="Twitter" rel="noreferrer" target="_blank">
-                    <i class="fa fa-twitter cus_twi" aria-hidden="true"></i>
-                  </a>
-               
-                  <a href="https://www.youtube.com/@debugshala" title="Youtube" rel="noreferrer" target="_blank">
-                    <i class="fa fa-youtube-play cus_play" aria-hidden="true"></i>
-                  </a>
-                
-                  <a href="https://www.linkedin.com/company/debugshala" title="Linkedin" rel="noreferrer" target="_blank">
-                    <i class="fa fa-linkedin cus_linkd" aria-hidden="true"></i>
-                  </a>
-              
-                  <a href="https://www.instagram.com/debugshala/" title="Instagram" rel="noreferrer" target="_blank">
-                    <i class="fa fa-instagram cus_insta" aria-hidden="true"></i>
-                  </a>
-                </div>
-                </div>
-              </div>
-    
-              <div class="footer-col">
-                <h3>About Us</h3>  <hr style="margin-bottom: 8px;"> 
-              
-                <a href="#">Our Story</a>
-                <a href="#">Our Team</a>
-                <a href="#">Careers</a>
-                <a href="#">Contact Us</a>
-             
-              </div>
-              
-              <div class="footer-col">
-                <h3>Courses</h3><hr style="margin-bottom: 8px;">
-    
-                <a href="#">Data Science</a>
-                <a href="#">MERN Stack</a>
-                <a href="#">Java Full Stack</a>
-                  <a href="#">Generative AI</a>
-                <a href="#">Data Analytics</a>
-                <a href="#">Next.js Development</a>
-                
-              </div>
-              
-              <div class="footer-col">
-                <h3>Resources</h3> <hr style="margin-bottom: 8px;">
-            
-                <a href="#">Blog</a>
-                <a href="#">Success Stories</a>
-                <a href="#">FAQs</a>
-                <a href="#">Terms & Conditions</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Refund Policy</a>
-               
-              </div>
-              
-           
-    
-              <div class="footer-col">
-                <h3>Crash Courses by Debugshala in Indore</h3> <hr style="margin-bottom: 8px;">
-                
-                <a href="#" target="_blank">Cybersecurity Course in Indore</a>
-                  <a href="#" target="_blank">Cloud Computing Course in Indore</a>
-                  <a href="#" target="_blank">DevOps Course in Indore</a>
-                  <a href="#" target="_blank">Project Management Course in Indore</a>
-                  <a href="#" target="_blank">Blockchain Course in Indore</a>
-                    <a href="#" target="_blank">UI/UX Designing Course in Indore</a>
-                  <a href="#" target="_blank">Generative AI Course in Indore</a>
-                    <a href="#" target="_blank">Chatbot Development Course in Indore</a>
-                  <a href="#" target="_blank">Linux Administrator Course in Indore</a>
-                  <a href="#" target="_blank">WordPress Development Course in Indore</a>
-                  <a href="#" target="_blank">LinkedIn Optimization Course in Indore</a>
-                  <a href="#" target="_blank">AI Marketer Course in Indore</a>
-                
-              </div>
-              <div class="footer-col">
-                <h3>Company</h3>  <hr style="margin-bottom: 8px;">
-              
-                
-                    <a href="https://www.debugshala.com/about-us" title="About Debugshala" target="_blank">About Debugshala</a>
-                  
-                
-                    <a href="https://wa.me/+919111333207" title="Share your expertise with others" target="_blank">Become An Instructor</a>
-                  
-                
-                    <a href="https://www.thedatacareer.com/candidates/" title="Hire From Us" target="_blank">Hire From Us</a>
-                  
-                
-                    <a href="https://www.debugshala.com/privacy-policy" title="Privacy Policy" target="_blank">Privacy Policy</a>
-                  
-                
-                    <a href="https://debugshala.com/terms-conditions/" title="Terms & Conditions" target="_blank">Terms & Conditions</a>
-                  
-                
-                    <a href="https://www.debugshala.com/refund-policy" title="Refund/Cancellation Policy" target="_blank">Refund Policy</a>
-                  
-                
-              </div>
-              <div class="footer-col">
-                <h3>Top Placement Courses in Indore</h3> <hr style="margin-bottom: 8px;">
-              
-                  
-                      <a href="https://debugshala.com/data-science-course-in-indore/" target="_blank">Data Science Placement Course in Indore</a>
-                    
-                  
-                      <a href="https://debugshala.com/data-science-course-in-indore/" target="_blank">Generative AI Placement Course in Indore</a>
-                    
-                  
-                      <a href="https://debugshala.com/data-science-course-in-indore/" target="_blank">Next.js Development Course in Indore</a>
-                    
-                  
-                      <a href="https://debugshala.com/data-science-course-in-indore/" target="_blank">React.js Development Course in Indore</a>
-                    
-                  
-                      <a href="https://debugshala.com/java-full-stack-course-in-indore/" target="_blank">Java Web Development Placement Course in Indore</a>
-                    
-                  
-                      <a href="https://www.debugshala.com/mern-stack-course-in-indore" target="_blank">MERN Stack Development Placement Course in Indore</a>
-                    
-                  
-                
-              </div>
-    
-             
-    
-    
-    
-            </div>
-          
-    
-            
-            <div class="footer-bottom">
-           
-             
-              <p>We have convenient location in Indore at Old Palasia. If you reside or seek training in any of these areas, reach out to our career counselors to discover the our branch for you.</p>
-              <p>Adya Nagar, Airport Road, Aishbagh, Anand Nagar, Annapurna Nagar, Arjun Nagar, Bada Ganpati Nagar, Banganga, Bapu Nagar, Bhawarkuan, Bhelpur, Bhopal Road, Brahmin Colony, Chandan Nagar, Chandragupta Colony, Chhatripura, Civil Lines, Dev Nagar, Dhan Mandi, Dhar Road, Ganesh Nagar, Gopal Mandir, Gopalpura, Hanumanganj, Hira Nagar, Indore Cantt, Janakpuri, Jawahar Nagar, Khajrana, Kothi, Lalbagh, Laxmi Nagar, Malharganj, Manoramaganj, Mangalmurti Nagar, Mhow Road, Nehru Nagar, New Palasia, Old Palasia, Pardesipura, Parle Tilak Nagar, Pithampur, Rajendra Nagar, Rajgarh Road, Rakhial, Ratlam Road, Sanchar Nagar, Saraswati Nagar, Sarafa Bazar, Sayaji Nagar, Shivaji Nagar, Sneh Nagar, Subhash Nagar, Tilak Nagar, Trilanga, Vijay Nagar, Yashwant Nagar.</p>
-              <p>We guarantee that investing an extra 15 - 20 minutes in travel will bring you to the premier training institute that is truly worth both your money and career.</p>
-              <p>© 2023 <a href="https://www.debugshala.com/">Debugshala</a>. All Rights Reserved.</p>
-              <div class="footer-logo">
-                <img src="https://eclectic-klepon-76aabe.netlify.app/assets/image/footer_dbs_1.png"  alt="Debugshala Logo" 
-                style="
-        margin-top: 30px;
-        margin-left: 40px;"
-    >
-              </div>
-            </div>
-          </div>
-        </footer>
-  </div>
-  <script type="module" src="/src/main.ts"></script>
-    <script src="/src/scripts/sticky-form.js"></script>
 </body>
-
 </html>
-
-
