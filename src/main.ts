@@ -337,27 +337,90 @@ setInterval(() => {
 }, 2000);
 
 // FAQ Functionality
-const faqItems = document.querySelectorAll('.faq-item');
+document.addEventListener('DOMContentLoaded', () => {
+  const faqItems = document.querySelectorAll('.faq-item');
+  const faqQuestions = document.querySelectorAll('.faq-question');
 
-faqItems.forEach(item => {
-  item.addEventListener('click', () => {
-    const isActive = item.classList.contains('active');
+  // Initialize FAQ items - ensure all are closed initially
+  faqItems.forEach(item => {
+    item.classList.remove('active');
+  });
+
+  // Add active class to first FAQ item to highlight one by default (optional)
+  // if (faqItems.length > 0) {
+  //   faqItems[0].classList.add('active');
+  // }
+
+  faqQuestions.forEach((question) => {
+    question.addEventListener('click', (event) => {
+      event.stopPropagation(); // Prevent event from bubbling up
+      const faqItem = question.closest('.faq-item') as HTMLElement;
+      
+      if (!faqItem) return; // Handle null case
+      
+      const isActive = faqItem.classList.contains('active');
+      
+      // Close all other FAQs with a small animation delay
+      faqItems.forEach(otherItem => {
+        if (otherItem !== faqItem) {
+          otherItem.classList.remove('active');
+        }
+      });
+      
+      // Toggle current FAQ with a slight delay for better visual effect
+      setTimeout(() => {
+        faqItem.classList.toggle('active');
+      }, isActive ? 0 : 50);
+      
+      // If opening this FAQ, scroll it into view with a smooth animation
+      if (!isActive) {
+        const yOffset = -100; // Offset from the top of the viewport
+        setTimeout(() => {
+          const y = faqItem.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({ 
+            top: y, 
+            behavior: 'smooth' 
+          });
+        }, 100);
+      }
+    });
+  });
+
+  // Make FAQ items accessible with keyboard navigation
+  faqQuestions.forEach(question => {
+    question.setAttribute('tabindex', '0');
+    question.setAttribute('role', 'button');
+    question.setAttribute('aria-expanded', 'false');
     
-    // Close all other FAQs
-    faqItems.forEach(otherItem => {
-      if (otherItem !== item) {
-        otherItem.classList.remove('active');
+    const faqItem = question.closest('.faq-item');
+    const answer = faqItem?.querySelector('.faq-answer');
+    
+    if (answer) {
+      const answerId = `faq-answer-${Math.random().toString(36).substring(2, 9)}`;
+      answer.setAttribute('id', answerId);
+      question.setAttribute('aria-controls', answerId);
+    }
+    
+    question.addEventListener('keydown', (event: Event) => {
+      const keyEvent = event as KeyboardEvent;
+      if (keyEvent.key === 'Enter' || keyEvent.key === ' ') {
+        event.preventDefault();
+        (question as HTMLElement).click();
       }
     });
     
-    // Toggle current FAQ
-    item.classList.toggle('active');
+    // Update ARIA attributes when FAQ state changes
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+          const expanded = faqItem?.classList.contains('active');
+          question.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        }
+      });
+    });
     
-    // If opening this FAQ, scroll it into view
-    if (!isActive) {
-      const yOffset = -100; // Offset from the top of the viewport
-      const y = item.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
+    if (faqItem) {
+      observer.observe(faqItem, { attributes: true });
     }
   });
 });

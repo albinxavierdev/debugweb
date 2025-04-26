@@ -962,28 +962,25 @@
         overflow: hidden;
         padding: 20px 0;
         margin: 0 auto;
-        box-sizing: border-box; /* Ensure padding is included in width calculation */
       }
 
       /* Ensure container has enough space for all cards */
       .workshop-slider {
-        min-height: 350px; /* Increased height for better visibility */
-        padding-bottom: 50px; /* Extra space at bottom to avoid cuts */
+        min-height: 320px; /* Ensure enough height for the cards */
       }
 
       .hackathon-slider {
-        min-height: 370px; /* Increased height for better visibility */
-        padding-bottom: 50px; /* Extra space at bottom to avoid cuts */
+        min-height: 340px; /* Slightly taller for hackathon cards */
       }
 
       .workshop-cards, .hackathon-cards {
         display: flex;
-        overflow-x: hidden; /* Changed from auto to hidden to prevent scrollbar */
+        overflow-x: auto;
         scroll-behavior: smooth;
         -webkit-overflow-scrolling: touch;
         scroll-snap-type: x mandatory;
         gap: 20px;
-        padding: 10px 20px; /* Added horizontal padding */
+        padding: 10px;
         /* Hide scrollbar */
         -ms-overflow-style: none;  /* IE and Edge */
         scrollbar-width: none;  /* Firefox */
@@ -997,12 +994,12 @@
 
       /* Adjust the animation duration for each slider */
       .workshop-cards {
-        animation: scrollWorkshop 40s linear infinite;
+        animation: scrollWorkshop 35s linear infinite;
         width: fit-content; /* Ensure width fits content for proper animation */
       }
 
       .hackathon-cards {
-        animation: scrollHackathon 40s linear infinite;
+        animation: scrollHackathon 30s linear infinite;
         width: fit-content; /* Ensure width fits content for proper animation */
       }
 
@@ -1017,27 +1014,20 @@
         height: auto; /* Allow height to adjust based on content */
         display: flex;
         flex-direction: column;
-        margin-right: 5px; /* Add slight margin to prevent touching */
       }
       
       .workshop-card:hover, .hackathon-card:hover {
         transform: translateY(-5px);
         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
       }
-      
-      /* Add animation play state control on hover to pause when needed */
-      .workshop-slider:hover .workshop-cards,
-      .hackathon-slider:hover .hackathon-cards {
-        animation-play-state: paused;
-      }
-      
-      /* Define a wrapper for better animation effect */
+
+      /* Define separate keyframes for each slider for better control */
       @keyframes scrollWorkshop {
         0% {
           transform: translateX(0);
         }
         100% {
-          transform: translateX(calc(-325px * 5)); /* 5 cards with all gaps and margins */
+          transform: translateX(calc(-300px * 5 - 20px * 5)); /* 5 cards plus gaps */
         }
       }
 
@@ -1046,7 +1036,7 @@
           transform: translateX(0);
         }
         100% {
-          transform: translateX(calc(-325px * 6)); /* 6 cards with all gaps and margins */
+          transform: translateX(calc(-300px * 2 - 20px * 2)); /* 2 cards plus gaps */
         }
       }
 
@@ -1246,100 +1236,50 @@
           <div class="hackathon-cards">
             <!-- Card 1 -->
             <div class="hackathon-card">
-              <img src="/src/images/hackathons/1734369939526.jpeg" alt="GenAI Buildathon" class="hackathon-image">
+              <img src="/src/images/hackathons/1734369939526.jpeg" alt="Hackathon Event 1" class="hackathon-image">
               <div class="hackathon-info">
-                <h3>India's Biggest GenAI Buildathon by 100x Engineers</h3>
+                <h3>India's Biggest GenAI Buildathon</h3>
                 <p>Students showcasing innovative solutions at prestigious hackathon events</p>
               </div>
             </div>
             <!-- Card 2 -->
             <div class="hackathon-card">
-              <img src="/src/images/hackathons/h1.jpeg" alt="GenAI Buildathon" class="hackathon-image">
+              <img src="/src/images/hackathons/h1.jpeg" alt="Hackathon Event 2" class="hackathon-image">
               <div class="hackathon-info">
-                <h3>GenAI Buildathon by Debugshala</h3>
-                <p>Practical hands-on experience with generative AI technologies</p>
+                <h3>Tech Innovation Challenge</h3>
+                <p>Our students winning accolades for their exceptional projects</p>
               </div>
             </div>
-            <!-- Card 3 -->
-            <div class="hackathon-card">
-              <img src="/src/images/hackathons/1734369939526.jpeg" alt="Content Creation" class="hackathon-image">
-              <div class="hackathon-info">
-                <h3>Why to be a Content Creator in 2025</h3>
-                <p>Exploring opportunities in the growing field of technical content creation</p>
-          </div>
-            </div>
-            <!-- Card 4 -->
-            <div class="hackathon-card">
-              <img src="/src/images/hackathons/h1.jpeg" alt="Career Elevation" class="hackathon-image">
-              <div class="hackathon-info">
-                <h3>Beyond Coding, Elevate your career in AI & IT</h3>
-                <p>Skills and strategies for advancing in AI and technology careers</p>
-              </div>
-            </div>
-            <!-- Card 5 -->
-            <div class="hackathon-card">
-              <img src="/src/images/hackathons/1734369939526.jpeg" alt="Blockchain" class="hackathon-image">
-              <div class="hackathon-info">
-                <h3>Mastering Blockchain in 2025</h3>
-                <p>Learning the latest blockchain technologies and implementation strategies</p>
-              </div>
-            </div>
-            <!-- Card 6 -->
-            <div class="hackathon-card">
-              <img src="/src/images/hackathons/h1.jpeg" alt="Soft Skills" class="hackathon-image">
-              <div class="hackathon-info">
-                <h3>Importance of Soft Skills in Career Development</h3>
-                <p>How communication and leadership complement technical expertise</p>
-              </div>
-            </div>
-            
-            <!-- Second set of cards (duplicates for infinite scrolling) -->
             <!-- Card 1 repeat -->
             <div class="hackathon-card">
-              <img src="/src/images/hackathons/1734369939526.jpeg" alt="GenAI Buildathon" class="hackathon-image">
+              <img src="/src/images/hackathons/1734369939526.jpeg" alt="Hackathon Event 1" class="hackathon-image">
               <div class="hackathon-info">
-                <h3>India's Biggest GenAI Buildathon by 100x Engineers</h3>
+                <h3>India's Biggest GenAI Buildathon</h3>
                 <p>Students showcasing innovative solutions at prestigious hackathon events</p>
-              </div>
+          </div>
             </div>
             <!-- Card 2 repeat -->
             <div class="hackathon-card">
-              <img src="/src/images/hackathons/h1.jpeg" alt="GenAI Buildathon" class="hackathon-image">
+              <img src="/src/images/hackathons/h1.jpeg" alt="Hackathon Event 2" class="hackathon-image">
               <div class="hackathon-info">
-                <h3>GenAI Buildathon by Debugshala</h3>
-                <p>Practical hands-on experience with generative AI technologies</p>
+                <h3>Tech Innovation Challenge</h3>
+                <p>Our students winning accolades for their exceptional projects</p>
               </div>
             </div>
-            <!-- Card 3 repeat -->
+            <!-- Card 1 repeat again -->
             <div class="hackathon-card">
-              <img src="/src/images/hackathons/1734369939526.jpeg" alt="Content Creation" class="hackathon-image">
+              <img src="/src/images/hackathons/1734369939526.jpeg" alt="Hackathon Event 1" class="hackathon-image">
               <div class="hackathon-info">
-                <h3>Why to be a Content Creator in 2025</h3>
-                <p>Exploring opportunities in the growing field of technical content creation</p>
+                <h3>India's Biggest GenAI Buildathon</h3>
+                <p>Students showcasing innovative solutions at prestigious hackathon events</p>
               </div>
             </div>
-            <!-- Card 4 repeat -->
+            <!-- Card 2 repeat again -->
             <div class="hackathon-card">
-              <img src="/src/images/hackathons/h1.jpeg" alt="Career Elevation" class="hackathon-image">
+              <img src="/src/images/hackathons/h1.jpeg" alt="Hackathon Event 2" class="hackathon-image">
               <div class="hackathon-info">
-                <h3>Beyond Coding, Elevate your career in AI & IT</h3>
-                <p>Skills and strategies for advancing in AI and technology careers</p>
-              </div>
-            </div>
-            <!-- Card 5 repeat -->
-            <div class="hackathon-card">
-              <img src="/src/images/hackathons/1734369939526.jpeg" alt="Blockchain" class="hackathon-image">
-              <div class="hackathon-info">
-                <h3>Mastering Blockchain in 2025</h3>
-                <p>Learning the latest blockchain technologies and implementation strategies</p>
-              </div>
-            </div>
-            <!-- Card 6 repeat -->
-            <div class="hackathon-card">
-              <img src="/src/images/hackathons/h1.jpeg" alt="Soft Skills" class="hackathon-image">
-              <div class="hackathon-info">
-                <h3>Importance of Soft Skills in Career Development</h3>
-                <p>How communication and leadership complement technical expertise</p>
+                <h3>Tech Innovation Challenge</h3>
+                <p>Our students winning accolades for their exceptional projects</p>
               </div>
             </div>
           </div>
@@ -1821,135 +1761,746 @@
 </style>
  <!-- // -->
 
-<section class="student-testimonials-section">
-  <div class="container">
-    <h2 class="section-title">Student Success Stories</h2>
-    <div class="carousel-container">
-      <button class="arrow arrow-left" id="arrow-left">&#10094;</button>
-      <div class="carousel" id="carousel">
-        <!-- YouTube Shorts Items -->
-        <div class="carousel-item shorts-item">
+ <div class="carousel-container">
+  <h2 class="section-title">Student Success Testimonials</h2>
+  <button class="arrow arrow-left" id="arrow-left">&#10094;</button>
+  <div class="carousel" id="carousel">
+      <!-- YouTube Shorts Items -->
+      <div class="carousel-item shorts-item">
           <div class="video-container shorts">
-            <iframe 
-              src="https://www.youtube.com/embed/sgC3UhcU4-4"
-              allow="autoplay; encrypted-media" 
-              allowfullscreen
-              title="DebugShala Student Testimonial Short">
-            </iframe>
+              <iframe 
+                  src="https://www.youtube.com/embed/sgC3UhcU4-4?showinfo=0&controls=0&rel=0&modestbranding=1&cc_load_policy=0"
+                  allow="autoplay; encrypted-media" 
+                  allowfullscreen
+                  title="DebugShala Student Testimonial Short">
+              </iframe>
           </div>
-        </div>
-        
-        <div class="carousel-item shorts-item">
+      </div>
+      
+      <div class="carousel-item shorts-item">
           <div class="video-container shorts">
-            <iframe 
-              src="https://www.youtube.com/embed/oLSJ-q8SpCQ"
-              allow="autoplay; encrypted-media" 
-              allowfullscreen
-              title="DebugShala Student Story">
-            </iframe>
+              <iframe 
+                  src="https://www.youtube.com/embed/oLSJ-q8SpCQ?showinfo=0&controls=0&rel=0&modestbranding=1&cc_load_policy=0"
+                  allow="autoplay; encrypted-media" 
+                  allowfullscreen
+                  title="DebugShala Student Story">
+              </iframe>
+            </div>
+          </div>
+
+      <div class="carousel-item shorts-item">
+          <div class="video-container shorts">
+              <iframe 
+                  src="https://www.youtube.com/embed/XzSRJoRRPOQ?showinfo=0&controls=0&rel=0&modestbranding=1&cc_load_policy=0"
+                  allow="autoplay; encrypted-media" 
+                  allowfullscreen
+                  title="DebugShala Student Success">
+              </iframe>
+                </div>
+                </div>
+      
+      <div class="carousel-item shorts-item">
+          <div class="video-container shorts">
+              <iframe 
+                  src="https://www.youtube.com/embed/DmU2bH6xCyk?showinfo=0&controls=0&rel=0&modestbranding=1&cc_load_policy=0"
+                  allow="autoplay; encrypted-media" 
+                  allowfullscreen
+                  title="DebugShala Student Journey">
+              </iframe>
+              </div>
+            </div>
+      
+      <div class="carousel-item shorts-item">
+          <div class="video-container shorts">
+              <iframe 
+                  src="https://www.youtube.com/embed/7vVHNrU80Eg?showinfo=0&controls=0&rel=0&modestbranding=1&cc_load_policy=0"
+                  allow="autoplay; encrypted-media" 
+                  allowfullscreen
+                  title="DebugShala Student Testimonial">
+              </iframe>
           </div>
         </div>
 
-        <div class="carousel-item shorts-item">
+      <div class="carousel-item shorts-item">
           <div class="video-container shorts">
-            <iframe 
-              src="https://www.youtube.com/embed/XzSRJoRRPOQ"
-              allow="autoplay; encrypted-media" 
-              allowfullscreen
-              title="DebugShala Student Success">
-            </iframe>
+              <iframe 
+                  src="https://www.youtube.com/embed/_QYcA4NNdZk?showinfo=0&controls=0&rel=0&modestbranding=1&cc_load_policy=0"
+                  allow="autoplay; encrypted-media" 
+                  allowfullscreen
+                  title="DebugShala Student Achievement">
+              </iframe>
           </div>
-        </div>
-        
-        <div class="carousel-item shorts-item">
-          <div class="video-container shorts">
-            <iframe 
-              src="https://www.youtube.com/embed/DmU2bH6xCyk"
-              allow="autoplay; encrypted-media" 
-              allowfullscreen
-              title="DebugShala Student Journey">
-            </iframe>
-          </div>
-        </div>
-        
-        <div class="carousel-item shorts-item">
-          <div class="video-container shorts">
-            <iframe 
-              src="https://www.youtube.com/embed/7vVHNrU80Eg"
-              allow="autoplay; encrypted-media" 
-              allowfullscreen
-              title="DebugShala Student Testimonial">
-            </iframe>
-          </div>
-        </div>
-
-        <div class="carousel-item shorts-item">
-          <div class="video-container shorts">
-            <iframe 
-              src="https://www.youtube.com/embed/_QYcA4NNdZk"
-              allow="autoplay; encrypted-media" 
-              allowfullscreen
-              title="DebugShala Student Achievement">
-            </iframe>
-          </div>
-        </div>
-        
-        <div class="carousel-item shorts-item">
-          <div class="video-container shorts">
-            <iframe 
-              src="https://www.youtube.com/embed/CDGQkEQOyhY"
-              allow="autoplay; encrypted-media" 
-              allowfullscreen
-              title="DebugShala Student Experience">
-            </iframe>
-          </div>
-        </div>
-        
-        <div class="carousel-item shorts-item">
-          <div class="video-container shorts">
-            <iframe 
-              src="https://www.youtube.com/embed/sA8j3daNnoQ"
-              allow="autoplay; encrypted-media" 
-              allowfullscreen
-              title="DebugShala Student Review">
-            </iframe>
-          </div>
-        </div>
-        
-        <div class="carousel-item shorts-item">
-          <div class="video-container shorts">
-            <iframe 
-              src="https://www.youtube.com/embed/jtnqF5WOIH0"
-              allow="autoplay; encrypted-media" 
-              allowfullscreen
-              title="DebugShala Student Journey">
-            </iframe>
-          </div>
-        </div>
-        
-        <div class="carousel-item shorts-item">
-          <div class="video-container shorts">
-            <iframe 
-              src="https://www.youtube.com/embed/BxrD6k2is0M"
-              allow="autoplay; encrypted-media" 
-              allowfullscreen
-              title="DebugShala Student Testimonial">
-            </iframe>
-          </div>
-        </div>
       </div>
-      <button class="arrow arrow-right" id="arrow-right">&#10095;</button>
-      <div class="slider-dots">
-        <span class="dot active"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
+      
+      <div class="carousel-item shorts-item">
+          <div class="video-container shorts">
+              <iframe 
+                  src="https://www.youtube.com/embed/CDGQkEQOyhY?showinfo=0&controls=0&rel=0&modestbranding=1&cc_load_policy=0"
+                  allow="autoplay; encrypted-media" 
+                  allowfullscreen
+                  title="DebugShala Student Experience">
+              </iframe>
+          </div>
       </div>
-    </div>
+      
+      <div class="carousel-item shorts-item">
+          <div class="video-container shorts">
+              <iframe 
+                  src="https://www.youtube.com/embed/sA8j3daNnoQ?showinfo=0&controls=0&rel=0&modestbranding=1&cc_load_policy=0"
+                  allow="autoplay; encrypted-media" 
+                  allowfullscreen
+                  title="DebugShala Student Review">
+              </iframe>
+          </div>
+      </div>
+      
+      <div class="carousel-item shorts-item">
+          <div class="video-container shorts">
+              <iframe 
+                  src="https://www.youtube.com/embed/jtnqF5WOIH0?showinfo=0&controls=0&rel=0&modestbranding=1&cc_load_policy=0"
+                  allow="autoplay; encrypted-media" 
+                  allowfullscreen
+                  title="DebugShala Student Journey">
+              </iframe>
+          </div>
+      </div>
+      
+      <div class="carousel-item shorts-item">
+          <div class="video-container shorts">
+              <iframe 
+                  src="https://www.youtube.com/embed/BxrD6k2is0M?showinfo=0&controls=0&rel=0&modestbranding=1&cc_load_policy=0"
+                  allow="autoplay; encrypted-media" 
+                  allowfullscreen
+                  title="DebugShala Student Testimonial">
+              </iframe>
+          </div>
+      </div>
   </div>
-</section>
+  <button class="arrow arrow-right" id="arrow-right">&#10095;</button>
+</div>
 
-<!-- CTA Banner after YouTube Shorts -->
+<style>
+.testimonials-section {
+  padding: 80px 0;
+  background-color: #f8fafc;
+}
+
+.testimonials-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.testimonials-section .section-title {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #0A2647;
+  font-size: 36px;
+  font-weight: 700;
+}
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      const carousel = document.getElementById('carousel');
+      const items = document.querySelectorAll('.carousel-item');
+      const leftBtn = document.getElementById('arrow-left');
+      const rightBtn = document.getElementById('arrow-right');
+      
+      // Calculate item width including margin
+      const itemWidth = items[0].offsetWidth + parseInt(window.getComputedStyle(items[0]).marginRight);
+      
+      let currentIndex = 0;
+      const totalItems = items.length;
+      
+      // Calculate visible items based on screen width
+      function calculateVisibleItems() {
+          const containerWidth = carousel.parentElement.offsetWidth;
+          return Math.max(1, Math.floor(containerWidth / itemWidth));
+      }
+      
+      let visibleItems = calculateVisibleItems();
+      let maxIndex = totalItems - visibleItems;
+      
+      // Initialize
+      updateButtonStates();
+      
+      // Event listeners
+      leftBtn.addEventListener('click', scrollLeft);
+      rightBtn.addEventListener('click', scrollRight);
+      
+      // Handle window resize
+      window.addEventListener('resize', function() {
+          // Recalculate visible items on resize
+          visibleItems = calculateVisibleItems();
+          maxIndex = totalItems - visibleItems;
+          
+          if (currentIndex > maxIndex) {
+              currentIndex = maxIndex;
+              updateCarouselPosition();
+          }
+          
+          updateButtonStates();
+          adjustForMobile();
+      });
+      
+      // Auto-scroll every 6 seconds
+      let autoScrollInterval = setInterval(autoScroll, 6000);
+      
+      function autoScroll() {
+          if (currentIndex < maxIndex) {
+              currentIndex++;
+          } else {
+              currentIndex = 0;
+          }
+          updateCarouselPosition();
+          updateButtonStates();
+      }
+      
+      // Pause auto-scroll on hover
+      carousel.parentElement.addEventListener('mouseenter', function() {
+          clearInterval(autoScrollInterval);
+      });
+      
+      // Resume auto-scroll on mouse leave
+      carousel.parentElement.addEventListener('mouseleave', function() {
+          autoScrollInterval = setInterval(autoScroll, 6000);
+      });
+      
+      function scrollLeft() {
+          if (currentIndex > 0) {
+              currentIndex--;
+              updateCarouselPosition();
+          }
+          updateButtonStates();
+          pauseAllVideos();
+      }
+      
+      function scrollRight() {
+          if (currentIndex < maxIndex) {
+              currentIndex++;
+              updateCarouselPosition();
+          }
+          updateButtonStates();
+          pauseAllVideos();
+      }
+      
+      function updateCarouselPosition() {
+          const scrollAmount = currentIndex * itemWidth;
+          carousel.style.transform = `translateX(-${scrollAmount}px)`;
+      }
+      
+      function updateButtonStates() {
+          // Disable left button at the beginning
+          leftBtn.disabled = currentIndex === 0;
+          leftBtn.style.opacity = currentIndex === 0 ? '0.5' : '1';
+          
+          // Disable right button at the end
+          rightBtn.disabled = currentIndex >= maxIndex;
+          rightBtn.style.opacity = currentIndex >= maxIndex ? '0.5' : '1';
+      }
+      
+      // Function to pause all videos when scrolling
+      function pauseAllVideos() {
+          const iframes = document.querySelectorAll('iframe');
+          iframes.forEach(iframe => {
+              // Save the current src
+              const src = iframe.src;
+              // Reset the src to pause the video
+              iframe.src = src;
+          });
+      }
+
+      // Auto-adjust height for mobile
+      function adjustForMobile() {
+          if (window.innerWidth <= 768) {
+              document.querySelectorAll('.video-container.shorts').forEach(container => {
+                  container.style.paddingTop = '100%'; // Square format on mobile
+              });
+          } else {
+              document.querySelectorAll('.video-container.shorts').forEach(container => {
+                  container.style.paddingTop = '177.78%'; // 9:16 on desktop
+              });
+          }
+      }
+      
+      // Call on load
+      adjustForMobile();
+      
+      // Add click handlers to make thumbnails open YouTube videos in a new tab
+      document.querySelectorAll('.carousel-item.shorts-item').forEach(function(item) {
+          item.style.cursor = 'pointer';
+          item.addEventListener('click', function(e) {
+              // Prevent default behavior and stop propagation
+              e.preventDefault();
+              e.stopPropagation();
+              
+              // Get the iframe within this item
+              const iframe = item.querySelector('iframe');
+              if (iframe) {
+                  // Extract video ID from src
+                  const src = iframe.getAttribute('src');
+                  const videoId = src.split('?')[0].split('/').pop();
+                  
+                  // Open as a YouTube short in a new tab
+                  window.open(`https://www.youtube.com/shorts/${videoId}`, '_blank');
+              }
+          });
+      });
+
+      // Add click handlers to play videos in-place
+      document.querySelectorAll('.carousel-item.shorts-item').forEach(function(item) {
+          item.style.cursor = 'pointer';
+          
+          // Create reset button for each video
+          const resetButton = document.createElement('div');
+          resetButton.className = 'video-reset-button';
+          resetButton.innerHTML = '✕';
+          resetButton.addEventListener('click', function(e) {
+              e.stopPropagation(); // Prevent triggering the parent click
+              resetVideo(item);
+          });
+          item.appendChild(resetButton);
+          
+          item.addEventListener('click', function(e) {
+              // Prevent default behavior and stop propagation
+              e.preventDefault();
+              e.stopPropagation();
+              
+              // If another video is playing, reset it first
+              document.querySelectorAll('.carousel-item.shorts-item.playing').forEach(function(playingItem) {
+                  if (playingItem !== item) {
+                      resetVideo(playingItem);
+                  }
+              });
+              
+              // Get the iframe within this item
+              const iframe = item.querySelector('iframe');
+              if (iframe) {
+                  // Get current src and modify to enable autoplay and show controls
+                  let src = iframe.getAttribute('src');
+                  
+                  // If the video is not already playing
+                  if (!item.classList.contains('playing')) {
+                      // Update src to autoplay with controls
+                      src = src.replace('controls=0', 'controls=1');
+                      if (!src.includes('autoplay=1')) {
+                          src = src + '&autoplay=1';
+                      }
+                      iframe.setAttribute('src', src);
+                      
+                      // Update styles for playing state
+                      iframe.style.top = '0';
+                      iframe.style.height = '100%';
+                      iframe.style.opacity = '1';
+                      iframe.style.pointerEvents = 'auto';
+                      
+                      // Mark as playing
+                      item.classList.add('playing');
+                      
+                      // Pause auto-scrolling while video is playing
+                      clearInterval(autoScrollInterval);
+                  }
+              }
+          });
+      });
+  });
+
+  // Function to reset a video to thumbnail state
+  function resetVideo(item) {
+      const iframe = item.querySelector('iframe');
+      if (iframe) {
+          // Get the current src
+          let src = iframe.getAttribute('src');
+          
+          // Reset controls and remove autoplay
+          src = src.replace('controls=1', 'controls=0');
+          src = src.replace('&autoplay=1', '');
+          
+          // Reset src to stop video
+          iframe.setAttribute('src', src);
+          
+          // Reset styles
+          iframe.style.top = '-60%';
+          iframe.style.height = '250%';
+          iframe.style.opacity = '0.99';
+          iframe.style.pointerEvents = 'none';
+          
+          // Remove playing class
+          item.classList.remove('playing');
+          
+          // Restart auto-scrolling
+          autoScrollInterval = setInterval(autoScroll, 6000);
+      }
+  }
+</script>
+    
+<!-- Add this script to ensure only thumbnails show -->
+<script>
+  // Function to modify all YouTube embeds for thumbnail-only display
+  document.addEventListener('DOMContentLoaded', function() {
+    // Get all YouTube iframes
+    const youtubeIframes = document.querySelectorAll('.shorts-item iframe');
+    
+    // Add click event listeners to parent carousel items
+    document.querySelectorAll('.carousel-item.shorts-item').forEach(function(item, index) {
+      // Get the iframe src
+      const iframe = item.querySelector('iframe');
+      if (!iframe) return;
+      
+      // Extract video ID from src
+      const srcUrl = iframe.src;
+      const videoId = srcUrl.split('?')[0].split('/').pop();
+      
+      // Create clickable area
+      item.style.cursor = 'pointer';
+      item.addEventListener('click', function() {
+        window.open(`https://www.youtube.com/shorts/${videoId}`, '_blank');
+      });
+      
+      // Set high quality thumbnail as background
+      const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+      const thumbnailDiv = document.createElement('div');
+      thumbnailDiv.style.position = 'absolute';
+      thumbnailDiv.style.top = '0';
+      thumbnailDiv.style.left = '0';
+      thumbnailDiv.style.width = '100%';
+      thumbnailDiv.style.height = '100%';
+      thumbnailDiv.style.backgroundImage = `url(${thumbnailUrl})`;
+      thumbnailDiv.style.backgroundSize = 'cover';
+      thumbnailDiv.style.backgroundPosition = 'center';
+      thumbnailDiv.style.zIndex = '2';
+      
+      // Add play icon overlay
+      const playIcon = document.createElement('div');
+      playIcon.innerHTML = '<svg width="48" height="48" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg>';
+      playIcon.style.position = 'absolute';
+      playIcon.style.top = '50%';
+      playIcon.style.left = '50%';
+      playIcon.style.transform = 'translate(-50%, -50%)';
+      playIcon.style.zIndex = '3';
+      
+      // Add overlay elements
+      item.appendChild(thumbnailDiv);
+      item.appendChild(playIcon);
+      
+      // Hide the actual iframe
+      iframe.style.opacity = '0';
+    });
+  });
+</script>
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <div class="container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-grid">
+          <!-- FAQ Item 1 -->
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>What are the prerequisites for joining?</h3>
+              <span class="faq-icon"></span>
+            </div>
+            <div class="faq-answer">
+              <p>For most of our courses, you'll need:</p>
+              <ul>
+                <li>Basic computer knowledge and internet usage</li>
+                <li>Minimum 12th pass for most courses</li>
+                <li>Basic English communication skills</li>
+                <li>Dedication to learn and grow</li>
+                <li>No prior coding experience required for beginner courses</li>
+                <li>For advanced courses, basic programming knowledge is recommended</li>
+              </ul>
+            </div>
+          </div>
+            
+          <!-- FAQ Item 2 -->
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>How long are the courses?</h3>
+              <span class="faq-icon"></span>
+            </div>
+            <div class="faq-answer">
+              <p>Course durations vary based on the program:</p>
+              <ul>
+                <li>Full Stack Development: 24 weeks</li>
+                <li>Data Science & Analytics: 16 weeks</li>
+                <li>Cloud Computing: 12 weeks</li>
+                <li>React.js Development: 12 weeks</li>
+                <li>Java Full Stack: 24 weeks</li>
+              </ul>
+              <p>All courses include flexible timing options to accommodate working professionals and students.</p>
+            </div>
+          </div>
+            
+          <!-- FAQ Item 3 -->
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>Do you provide placement assistance?</h3>
+              <span class="faq-icon"></span>
+            </div>
+            <div class="faq-answer">
+              <p>Yes, we provide comprehensive placement support including:</p>
+              <ul>
+                <li>Resume building and optimization</li>
+                <li>Mock interview sessions</li>
+                <li>Soft skills training</li>
+                <li>Technical interview preparation</li>
+                <li>Direct connections with hiring partners</li>
+                <li>Placement guarantee for eligible candidates</li>
+              </ul>
+            </div>
+          </div>
+            
+          <!-- FAQ Item 4 -->
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>What is the mode of training?</h3>
+              <span class="faq-icon"></span>
+            </div>
+            <div class="faq-answer">
+              <p>We offer multiple training modes:</p>
+              <ul>
+                <li>Online Live Classes: Interactive sessions with real-time doubt solving</li>
+                <li>Offline Classroom: Traditional learning at our center</li>
+                <li>Hybrid Mode: Combination of online and offline sessions</li>
+                <li>Recorded Sessions: Available for revision and flexible learning</li>
+                <li>1:1 Mentoring: Personalized guidance sessions</li>
+                <li>Weekend Batches: For working professionals</li>
+              </ul>
+            </div>
+          </div>
+            
+          <!-- FAQ Item 5 -->
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>Are there any certifications provided?</h3>
+              <span class="faq-icon"></span>
+            </div>
+            <div class="faq-answer">
+              <p>Yes, we provide multiple certifications:</p>
+              <ul>
+                <li>Course Completion Certificate</li>
+                <li>Project Completion Certificates</li>
+                <li>Industry-recognized Skill Certifications</li>
+                <li>Technology-specific Certifications</li>
+                <li>Internship Completion Certificate</li>
+                <li>Additional certifications from our industry partners</li>
+              </ul>
+              <p>All certificates are digitally verifiable and industry-recognized.</p>
+            </div>
+          </div>
+            
+          <!-- FAQ Item 6 -->
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>What kind of projects will I work on?</h3>
+              <span class="faq-icon"></span>
+            </div>
+            <div class="faq-answer">
+              <p>Our project-based learning includes:</p>
+              <ul>
+                <li>Real-world Industry Projects</li>
+                <li>Capstone Projects with actual clients</li>
+                <li>Individual Portfolio Projects</li>
+                <li>Team Collaboration Projects</li>
+                <li>Industry-standard Tools and Technologies</li>
+                <li>Live Project Deployments</li>
+              </ul>
+              <p>Projects are designed to give you hands-on experience and build a strong portfolio.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Replace CTA Button -->
+    <div class="cta-container" style="display: none;">
+        <a href="https://forms.ccbp.in/public/form/talk-to-career-expert" class="btn primary">Request a Callback</a>
+    </div>
+
+  
+
+        <!-- Footer Section -->
+  
+
+        <footer class="footer">
+          <div class="footer-container">
+            <div class="footer-row">
+    
+              <div class="footer-col" id="icon-divs" >
+                <div>            <h3 >Contact Us</h3> <hr style="margin-bottom: 20px;"
+                  >
+               
+               <span> Call :</span> <a href="tel:+918982385539">+91 8982385539</a>
+                <a href="mailto:contact@debugshala.com">contact@debugshala.com</a>
+        Hire Talent: <a href="tel:+919111333207">+91-9111333207</a>
+    <br>
+        <samp>Address :</samp> <hr style="margin-bottom: 8px;">
+               
+        <a href="tel:+918982385539">C.S Naidu Arcade, 204, Greater Kailash Road, Opposite Grotto, Old Palasia, Indore, Madhya Pradesh 452001</a>
+        <a href="mailto:contact@debugshala.com">Leave a Review for Debugshala</a>
+    
+                
+                   </div>
+    
+                <div class="social-links">
+                  <h3>Shoot a DM at our Social Media Handles!</h3> 
+    
+    <div>
+                  <a href="https://www.facebook.com/debugshala" title="Facebook" rel="noreferrer" target="_blank">
+                    <i class="fa fa-facebook cus_fb" aria-hidden="true"></i>
+                  </a>
+            
+                  <a href="https://twitter.com/debugshala" title="Twitter" rel="noreferrer" target="_blank">
+                    <i class="fa fa-twitter cus_twi" aria-hidden="true"></i>
+                  </a>
+               
+                  <a href="https://www.youtube.com/@debugshala" title="Youtube" rel="noreferrer" target="_blank">
+                    <i class="fa fa-youtube-play cus_play" aria-hidden="true"></i>
+                  </a>
+                
+                  <a href="https://www.linkedin.com/company/debugshala" title="Linkedin" rel="noreferrer" target="_blank">
+                    <i class="fa fa-linkedin cus_linkd" aria-hidden="true"></i>
+                  </a>
+              
+                  <a href="https://www.instagram.com/debugshala/" title="Instagram" rel="noreferrer" target="_blank">
+                    <i class="fa fa-instagram cus_insta" aria-hidden="true"></i>
+                  </a>
+                </div>
+                </div>
+              </div>
+    
+              <div class="footer-col">
+                <h3>About Us</h3>  <hr style="margin-bottom: 8px;"> 
+              
+                <a href="#">Our Story</a>
+                <a href="#">Our Team</a>
+                <a href="#">Careers</a>
+                <a href="#">Contact Us</a>
+             
+              </div>
+              
+              <div class="footer-col">
+                <h3>Courses</h3><hr style="margin-bottom: 8px;">
+    
+                <a href="#">Data Science</a>
+                <a href="#">MERN Stack</a>
+                <a href="#">Java Full Stack</a>
+                  <a href="#">Generative AI</a>
+                <a href="#">Data Analytics</a>
+                <a href="#">Next.js Development</a>
+                
+              </div>
+              
+              <div class="footer-col">
+                <h3>Resources</h3> <hr style="margin-bottom: 8px;">
+            
+                <a href="#">Blog</a>
+                <a href="#">Success Stories</a>
+                <a href="#">FAQs</a>
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Refund Policy</a>
+               
+              </div>
+              
+           
+    
+              <div class="footer-col">
+                <h3>Crash Courses by Debugshala in Indore</h3> <hr style="margin-bottom: 8px;">
+                
+                <a href="#" target="_blank">Cybersecurity Course in Indore</a>
+                  <a href="#" target="_blank">Cloud Computing Course in Indore</a>
+                  <a href="#" target="_blank">DevOps Course in Indore</a>
+                  <a href="#" target="_blank">Project Management Course in Indore</a>
+                  <a href="#" target="_blank">Blockchain Course in Indore</a>
+                    <a href="#" target="_blank">UI/UX Designing Course in Indore</a>
+                  <a href="#" target="_blank">Generative AI Course in Indore</a>
+                    <a href="#" target="_blank">Chatbot Development Course in Indore</a>
+                  <a href="#" target="_blank">Linux Administrator Course in Indore</a>
+                  <a href="#" target="_blank">WordPress Development Course in Indore</a>
+                  <a href="#" target="_blank">LinkedIn Optimization Course in Indore</a>
+                  <a href="#" target="_blank">AI Marketer Course in Indore</a>
+                
+              </div>
+              <div class="footer-col">
+                <h3>Company</h3>  <hr style="margin-bottom: 8px;">
+              
+                
+                    <a href="https://www.debugshala.com/about-us" title="About Debugshala" target="_blank">About Debugshala</a>
+                  
+                
+                    <a href="https://wa.me/+919111333207" title="Share your expertise with others" target="_blank">Become An Instructor</a>
+                  
+                
+                    <a href="https://www.thedatacareer.com/candidates/" title="Hire From Us" target="_blank">Hire From Us</a>
+                  
+                
+                    <a href="https://www.debugshala.com/privacy-policy" title="Privacy Policy" target="_blank">Privacy Policy</a>
+                  
+                
+                    <a href="https://debugshala.com/terms-conditions/" title="Terms & Conditions" target="_blank">Terms & Conditions</a>
+                  
+                
+                    <a href="https://www.debugshala.com/refund-policy" title="Refund/Cancellation Policy" target="_blank">Refund Policy</a>
+                  
+                
+              </div>
+              <div class="footer-col">
+                <h3>Top Placement Courses in Indore</h3> <hr style="margin-bottom: 8px;">
+              
+                  
+                      <a href="https://debugshala.com/data-science-course-in-indore/" target="_blank">Data Science Placement Course in Indore</a>
+                    
+                  
+                      <a href="https://debugshala.com/data-science-course-in-indore/" target="_blank">Generative AI Placement Course in Indore</a>
+                    
+                  
+                      <a href="https://debugshala.com/data-science-course-in-indore/" target="_blank">Next.js Development Course in Indore</a>
+                    
+                  
+                      <a href="https://debugshala.com/data-science-course-in-indore/" target="_blank">React.js Development Course in Indore</a>
+                    
+                  
+                      <a href="https://debugshala.com/java-full-stack-course-in-indore/" target="_blank">Java Web Development Placement Course in Indore</a>
+                    
+                  
+                      <a href="https://www.debugshala.com/mern-stack-course-in-indore" target="_blank">MERN Stack Development Placement Course in Indore</a>
+                    
+                  
+                
+              </div>
+    
+             
+    
+    
+    
+            </div>
+          
+    
+            
+            <div class="footer-bottom">
+           
+             
+              <p>We have convenient location in Indore at Old Palasia. If you reside or seek training in any of these areas, reach out to our career counselors to discover the our branch for you.</p>
+              <p>Adya Nagar, Airport Road, Aishbagh, Anand Nagar, Annapurna Nagar, Arjun Nagar, Bada Ganpati Nagar, Banganga, Bapu Nagar, Bhawarkuan, Bhelpur, Bhopal Road, Brahmin Colony, Chandan Nagar, Chandragupta Colony, Chhatripura, Civil Lines, Dev Nagar, Dhan Mandi, Dhar Road, Ganesh Nagar, Gopal Mandir, Gopalpura, Hanumanganj, Hira Nagar, Indore Cantt, Janakpuri, Jawahar Nagar, Khajrana, Kothi, Lalbagh, Laxmi Nagar, Malharganj, Manoramaganj, Mangalmurti Nagar, Mhow Road, Nehru Nagar, New Palasia, Old Palasia, Pardesipura, Parle Tilak Nagar, Pithampur, Rajendra Nagar, Rajgarh Road, Rakhial, Ratlam Road, Sanchar Nagar, Saraswati Nagar, Sarafa Bazar, Sayaji Nagar, Shivaji Nagar, Sneh Nagar, Subhash Nagar, Tilak Nagar, Trilanga, Vijay Nagar, Yashwant Nagar.</p>
+              <p>We guarantee that investing an extra 15 - 20 minutes in travel will bring you to the premier training institute that is truly worth both your money and career.</p>
+              <p>© 2023 <a href="https://www.debugshala.com/">Debugshala</a>. All Rights Reserved.</p>
+              <div class="footer-logo">
+                <img src="https://eclectic-klepon-76aabe.netlify.app/assets/image/footer_dbs_1.png"  alt="Debugshala Logo" 
+                style="
+        margin-top: 30px;
+        margin-left: 40px;"
+    >
+              </div>
+            </div>
+          </div>
+        </footer>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+    <script src="/src/scripts/sticky-form.js"></script>
 </body>
+
 </html>
+
+

@@ -1,22 +1,64 @@
 /* Testimonials Section Styles */
 
 .testimonials-section {
-  padding: 40px 0;
-  background-color: #f5f7fa;
+  padding: 80px 0;
+  background-color: #f8fafc;
   position: relative;
-  overflow: hidden;
 }
 
 .testimonials-container {
-  max-width: var(--container-max-width);
-  padding: 0 var(--container-padding);
+  max-width: 1200px;
   margin: 0 auto;
-  text-align: center;
-  position: relative;
+  padding: 0 20px;
 }
 
 .testimonials-section .section-title {
-  margin-bottom: 32px;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #0A2647;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 20px 0;
+  margin: 20px 0;
+  border-radius: 16px;
+  background-color: #f8fafc;
+  box-shadow: none;
+}
+
+.shorts-title {
+  display: none; /* Hide this as we're using section-title instead */
+}
+
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(10, 38, 71, 0.2);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.dot:hover {
+  background-color: rgba(10, 38, 71, 0.4);
+}
+
+.dot.active {
+  background-color: #0A2647;
+  transform: scale(1.2);
 }
 
 /* Testimonial Slider */
@@ -174,11 +216,17 @@
 
 @media (max-width: 768px) {
   .testimonials-section {
-    padding: 32px 0;
+    padding: 50px 0;
   }
   
   .testimonials-section .section-title {
-    margin-bottom: 24px;
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+  
+  .carousel-container {
+    margin: 15px 0;
+    padding: 15px 0;
   }
   
   .testimonial-content {
@@ -198,4 +246,240 @@
   .author-name {
     font-size: 16px;
   }
+  
+  .carousel-item.shorts-item {
+    flex: 0 0 180px; /* Smaller on mobile */
+    max-width: 180px;
+  }
+  
+  /* Ensure video fills container properly */
+  .video-container.shorts {
+    padding-top: 177.78%; /* Keep 9:16 ratio */
+    width: 100%;
+  }
+  
+  /* Make arrows more visible on mobile */
+  .arrow {
+    width: 36px;
+    height: 36px;
+  }
+  
+  /* Keep slider dots visible */
+  .slider-dots {
+    margin-top: 15px;
+  }
+  
+  .dot {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+/* Improve YouTube shorts alignment - hide captions and show only thumbnails */
+.carousel-item.shorts-item {
+  margin: 0;
+  padding: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  flex: 0 0 240px;
+  max-width: 240px;
+  position: relative; /* For absolute positioning of iframe */
+}
+
+.video-container.shorts {
+  padding-top: 177.78%; /* 9:16 aspect ratio */
+  margin: 0;
+  background-color: #000;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.video-container.shorts iframe {
+  position: absolute;
+  top: -60%; /* Move the iframe up to show only the thumbnail portion */
+  left: 0;
+  width: 100%;
+  height: 250%; /* Larger height to have more control over visible area */
+  border: none;
+  object-fit: cover;
+  pointer-events: none; /* Disable direct interaction with iframe initially */
+  opacity: 0.99;
+  transition: all 0.3s ease; /* Smooth transition when playing */
+  z-index: 1;
+}
+
+/* Styles for when video is playing */
+.carousel-item.shorts-item.playing .video-container.shorts iframe {
+  top: 0;
+  height: 100%;
+  opacity: 1;
+  pointer-events: auto; /* Enable interaction when playing */
+  z-index: 10;
+}
+
+/* Hide gradient overlay when playing */
+.carousel-item.shorts-item.playing .video-container.shorts::after {
+  opacity: 0;
+}
+
+/* Hide hover overlay when playing */
+.carousel-item.shorts-item.playing::before {
+  display: none;
+}
+
+/* Pause indicator for playing videos */
+.carousel-item.shorts-item.playing::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  background-color: rgba(255,255,255,0.8);
+  border-radius: 50%;
+  z-index: 11;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='%23000000'%3E%3Cpath d='M6 19h4V5H6v14zm8-14v14h4V5h-4z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+  cursor: pointer;
+}
+
+/* Reset button to close video */
+.video-reset-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  background-color: rgba(255,255,255,0.8);
+  border-radius: 50%;
+  z-index: 12;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #000;
+  font-size: 18px;
+  line-height: 1;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-item.shorts-item.playing .video-reset-button {
+  display: flex;
+}
+
+.video-reset-button:hover {
+  background-color: rgba(255,255,255,1);
+}
+
+/* Make the active playing item wider */
+.carousel-item.shorts-item.playing {
+  flex: 0 0 300px;
+  max-width: 300px;
+  z-index: 20;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+/* Make videos clickable as a whole item */
+.carousel-item.shorts-item a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  cursor: pointer;
+}
+
+/* Add a play button overlay */
+.carousel-item.shorts-item::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%23FFFFFF'%3E%3Cpath d='M8 5v14l11-7z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.carousel-item.shorts-item:hover::after {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Adjust carousel spacing */
+.carousel {
+  display: flex;
+  gap: 15px; /* Consistent gap between videos */
+  padding: 10px 0;
+  margin: 0;
+}
+
+/* Ensure arrows don't interfere with video visibility */
+.arrow {
+  z-index: 10;
+  background-color: rgba(10, 38, 71, 0.8);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.arrow:hover {
+  background-color: rgba(10, 38, 71, 1);
+  transform: scale(1.1);
+}
+
+/* Add clear clickable overlay */
+.carousel-item.shorts-item {
+  cursor: pointer;
+  position: relative;
+}
+
+/* Add CSS for a play button overlay */
+.carousel-item.shorts-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.2);
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.carousel-item.shorts-item:hover::before {
+  opacity: 1;
+}
+
+/* Override any YouTube UI that might appear */
+.video-container.shorts::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30%; /* Cover the bottom portion where captions might appear */
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  z-index: 3;
+  pointer-events: none;
 }
