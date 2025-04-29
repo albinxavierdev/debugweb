@@ -1,0 +1,500 @@
+      function scrollRight() {
+          if (currentIndex < maxIndex) {
+              currentIndex++;
+              updateCarouselPosition();
+          }
+          updateButtonStates();
+          pauseAllVideos();
+      }
+      
+      function updateCarouselPosition() {
+          const scrollAmount = currentIndex * itemWidth;
+          carousel.style.transform = `translateX(-${scrollAmount}px)`;
+      }
+      
+      function updateButtonStates() {
+          // Disable left button at the beginning
+          leftBtn.disabled = currentIndex === 0;
+          leftBtn.style.opacity = currentIndex === 0 ? '0.5' : '1';
+          
+          // Disable right button at the end
+          rightBtn.disabled = currentIndex >= maxIndex;
+          rightBtn.style.opacity = currentIndex >= maxIndex ? '0.5' : '1';
+      }
+      
+      // Function to pause all videos when scrolling
+      function pauseAllVideos() {
+          const iframes = document.querySelectorAll('iframe');
+          iframes.forEach(iframe => {
+              // Save the current src
+              const src = iframe.src;
+              // Reset the src to pause the video
+              iframe.src = src;
+          });
+      }
+
+      // Auto-adjust height for mobile
+      function adjustForMobile() {
+          if (window.innerWidth <= 768) {
+              document.querySelectorAll('.video-container.shorts').forEach(container => {
+                  container.style.paddingTop = '100%'; // Square format on mobile
+              });
+          } else {
+              document.querySelectorAll('.video-container.shorts').forEach(container => {
+                  container.style.paddingTop = '177.78%'; // 9:16 on desktop
+              });
+          }
+      }
+      
+      // Call on load
+      adjustForMobile();
+      
+      // Add click handlers to make thumbnails open YouTube videos in a new tab
+      document.querySelectorAll('.carousel-item.shorts-item').forEach(function(item) {
+          item.style.cursor = 'pointer';
+          item.addEventListener('click', function(e) {
+              // Prevent default behavior and stop propagation
+              e.preventDefault();
+              e.stopPropagation();
+              
+              // Get the iframe within this item
+              const iframe = item.querySelector('iframe');
+              if (iframe) {
+                  // Extract video ID from src
+                  const src = iframe.getAttribute('src');
+                  const videoId = src.split('?')[0].split('/').pop();
+                  
+                  // Open as a YouTube short in a new tab
+                  window.open(`https://www.youtube.com/shorts/${videoId}`, '_blank');
+              }
+          });
+      });
+
+      // Add click handlers to play videos in-place
+      document.querySelectorAll('.carousel-item.shorts-item').forEach(function(item) {
+          item.style.cursor = 'pointer';
+          
+          // Create reset button for each video
+          const resetButton = document.createElement('div');
+          resetButton.className = 'video-reset-button';
+          resetButton.innerHTML = '✕';
+          resetButton.addEventListener('click', function(e) {
+              e.stopPropagation(); // Prevent triggering the parent click
+              resetVideo(item);
+          });
+          item.appendChild(resetButton);
+          
+          item.addEventListener('click', function(e) {
+              // Prevent default behavior and stop propagation
+              e.preventDefault();
+              e.stopPropagation();
+              
+              // If another video is playing, reset it first
+              document.querySelectorAll('.carousel-item.shorts-item.playing').forEach(function(playingItem) {
+                  if (playingItem !== item) {
+                      resetVideo(playingItem);
+                  }
+              });
+              
+              // Get the iframe within this item
+              const iframe = item.querySelector('iframe');
+              if (iframe) {
+                  // Get current src and modify to enable autoplay and show controls
+                  let src = iframe.getAttribute('src');
+                  
+                  // If the video is not already playing
+                  if (!item.classList.contains('playing')) {
+                      // Update src to autoplay with controls
+                      src = src.replace('controls=0', 'controls=1');
+                      if (!src.includes('autoplay=1')) {
+                          src = src + '&autoplay=1';
+                      }
+                      iframe.setAttribute('src', src);
+                      
+                      // Update styles for playing state
+                      iframe.style.top = '0';
+                      iframe.style.height = '100%';
+                      iframe.style.opacity = '1';
+                      iframe.style.pointerEvents = 'auto';
+                      
+                      // Mark as playing
+                      item.classList.add('playing');
+                      
+                      // Pause auto-scrolling while video is playing
+                      clearInterval(autoScrollInterval);
+                  }
+              }
+          });
+      });
+  });
+
+  // Function to reset a video to thumbnail state
+  function resetVideo(item) {
+      const iframe = item.querySelector('iframe');
+      if (iframe) {
+          // Get the current src
+          let src = iframe.getAttribute('src');
+          
+          // Reset controls and remove autoplay
+          src = src.replace('controls=1', 'controls=0');
+          src = src.replace('&autoplay=1', '');
+          
+          // Reset src to stop video
+          iframe.setAttribute('src', src);
+          
+          // Reset styles
+          iframe.style.top = '-60%';
+          iframe.style.height = '250%';
+          iframe.style.opacity = '0.99';
+          iframe.style.pointerEvents = 'none';
+          
+          // Remove playing class
+          item.classList.remove('playing');
+          
+          // Restart auto-scrolling
+          autoScrollInterval = setInterval(autoScroll, 6000);
+      }
+  }
+</script>
+    
+<!-- Add this script to ensure only thumbnails show -->
+<script>
+  // Function to modify all YouTube embeds for thumbnail-only display
+  document.addEventListener('DOMContentLoaded', function() {
+    // Get all YouTube iframes
+    const youtubeIframes = document.querySelectorAll('.shorts-item iframe');
+    
+    // Add click event listeners to parent carousel items
+    document.querySelectorAll('.carousel-item.shorts-item').forEach(function(item, index) {
+      // Get the iframe src
+      const iframe = item.querySelector('iframe');
+      if (!iframe) return;
+      
+      // Extract video ID from src
+      const srcUrl = iframe.src;
+      const videoId = srcUrl.split('?')[0].split('/').pop();
+      
+      // Create clickable area
+      item.style.cursor = 'pointer';
+      item.addEventListener('click', function() {
+        window.open(`https://www.youtube.com/shorts/${videoId}`, '_blank');
+      });
+      
+      // Set high quality thumbnail as background
+      const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+      const thumbnailDiv = document.createElement('div');
+      thumbnailDiv.style.position = 'absolute';
+      thumbnailDiv.style.top = '0';
+      thumbnailDiv.style.left = '0';
+      thumbnailDiv.style.width = '100%';
+      thumbnailDiv.style.height = '100%';
+      thumbnailDiv.style.backgroundImage = `url(${thumbnailUrl})`;
+      thumbnailDiv.style.backgroundSize = 'cover';
+      thumbnailDiv.style.backgroundPosition = 'center';
+      thumbnailDiv.style.zIndex = '2';
+      
+      // Add play icon overlay
+      const playIcon = document.createElement('div');
+      playIcon.innerHTML = '<svg width="48" height="48" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M8 5v14l11-7z"/></svg>';
+      playIcon.style.position = 'absolute';
+      playIcon.style.top = '50%';
+      playIcon.style.left = '50%';
+      playIcon.style.transform = 'translate(-50%, -50%)';
+      playIcon.style.zIndex = '3';
+      
+      // Add overlay elements
+      item.appendChild(thumbnailDiv);
+      item.appendChild(playIcon);
+      
+      // Hide the actual iframe
+      iframe.style.opacity = '0';
+    });
+  });
+</script>
+    <!-- FAQ Section (Rewritten) -->
+    <!-- <section class="faq-section faq_8">
+      <div class="responsive-container-block faqheading-bg">
+        <h2 class="text-blk faq-heading">Frequently Asked Questions</h2>
+        <div class="text-blk faq-subhead">Find quick answers to common questions about our courses, admissions, and support. If you need more help, contact our team anytime!</div>
+      </div>
+      <div class="responsive-container-block dropdown-container-wrapper">
+        <div class="responsive-container-block dropdown-container" id="faqAccordion">
+          <!-- FAQ Item 1 -->
+          <div class="faq-item card">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq1">
+              <span class="faq-q">What makes Debugshala different from other training institutes?</span>
+              <span class="toggle-icon">&#9660;</span>
+            </button>
+            <div class="faq-answer" id="faq1" hidden>
+              <p>Debugshala focuses on hands-on, project-based learning with real industry mentors. Our curriculum is updated regularly to match current tech trends, and we offer personalized career support for every student.</p>
+            </div>
+          </div>
+          <!-- FAQ Item 2 -->
+          <div class="faq-item card">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq2">
+              <span class="faq-q">Do I need prior coding experience to enroll?</span>
+              <span class="toggle-icon">&#9660;</span>
+            </button>
+            <div class="faq-answer" id="faq2" hidden>
+              <p>No prior coding experience is required for our beginner courses. We start from the basics and gradually build up to advanced concepts. For advanced tracks, some foundational knowledge is helpful but not mandatory.</p>
+            </div>
+          </div>
+          <!-- FAQ Item 3 -->
+          <div class="faq-item card">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq3">
+              <span class="faq-q">Are the classes live or recorded?</span>
+              <span class="toggle-icon">&#9660;</span>
+            </button>
+            <div class="faq-answer" id="faq3" hidden>
+              <p>We offer both live interactive classes and access to high-quality recorded sessions. You can attend live to ask questions in real time, or watch recordings at your convenience for revision.</p>
+            </div>
+          </div>
+          <!-- FAQ Item 4 -->
+          <div class="faq-item card">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq4">
+              <span class="faq-q">What kind of placement support do you provide?</span>
+              <span class="toggle-icon">&#9660;</span>
+            </button>
+            <div class="faq-answer" id="faq4" hidden>
+              <p>Our placement support includes resume building, mock interviews, soft skills training, and direct referrals to hiring partners. We guide you until you land your first tech job.</p>
+            </div>
+          </div>
+          <!-- FAQ Item 5 -->
+          <div class="faq-item card">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq5">
+              <span class="faq-q">Can I get a certificate after completing a course?</span>
+              <span class="toggle-icon">&#9660;</span>
+            </button>
+            <div class="faq-answer" id="faq5" hidden>
+              <p>Yes! All students receive a digital certificate upon successful course completion. Our certificates are industry-recognized and can be shared on LinkedIn or with employers.</p>
+            </div>
+          </div>
+          <!-- FAQ Item 6 -->
+          <div class="faq-item card">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq6">
+              <span class="faq-q">How do I get help if I'm stuck during the course?</span>
+              <span class="toggle-icon">&#9660;</span>
+            </button>
+            <div class="faq-answer" id="faq6" hidden>
+              <p>You can reach out to mentors via our discussion forums, live chat, or dedicated doubt-clearing sessions. Our support team is available 7 days a week to assist you.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+    // Accessible FAQ Accordion
+    const faqAccordion = document.getElementById('faqAccordion');
+    if (faqAccordion) {
+      faqAccordion.querySelectorAll('.faq-question').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const expanded = this.getAttribute('aria-expanded') === 'true';
+          // Close all
+          faqAccordion.querySelectorAll('.faq-question').forEach(b => {
+            b.setAttribute('aria-expanded', 'false');
+            b.parentElement.classList.remove('active');
+          });
+          faqAccordion.querySelectorAll('.faq-answer').forEach(a => a.hidden = true);
+          // Open this one if it was closed
+          if (!expanded) {
+            this.setAttribute('aria-expanded', 'true');
+            this.parentElement.classList.add('active');
+            const answer = this.parentElement.querySelector('.faq-answer');
+            if (answer) answer.hidden = false;
+          }
+        });
+      });
+    }
+    </script>
+
+    <!-- Replace CTA Button -->
+    <div class="cta-container" style="display: none;">
+        <a href="https://forms.ccbp.in/public/form/talk-to-career-expert" class="btn primary">Request a Callback</a>
+    </div>
+
+  
+
+        <!-- Footer Section -->
+  
+
+        <footer class="footer">
+          <div class="footer-container">
+            <div class="footer-row">
+    
+              <div class="footer-col" id="icon-divs" >
+                <div>            <h3 >Contact Us</h3> <hr style="margin-bottom: 20px;"
+                  >
+               
+               <span> Call :</span> <a href="tel:+918982385539">+91 8982385539</a>
+                <a href="mailto:contact@debugshala.com">contact@debugshala.com</a>
+        Hire Talent: <a href="tel:+919111333207">+91-9111333207</a>
+    <br>
+        <samp>Address :</samp> <hr style="margin-bottom: 8px;">
+               
+        <a href="tel:+918982385539">C.S Naidu Arcade, 204, Greater Kailash Road, Opposite Grotto, Old Palasia, Indore, Madhya Pradesh 452001</a>
+        <a href="mailto:contact@debugshala.com">Leave a Review for Debugshala</a>
+    
+                
+                   </div>
+    
+                <div class="social-links">
+                  <h3>Shoot a DM at our Social Media Handles!</h3> 
+    
+    <div>
+                  <a href="https://www.facebook.com/debugshala" title="Facebook" rel="noreferrer" target="_blank">
+                    <i class="fa fa-facebook cus_fb" aria-hidden="true"></i>
+                  </a>
+            
+                  <a href="https://twitter.com/debugshala" title="Twitter" rel="noreferrer" target="_blank">
+                    <i class="fa fa-twitter cus_twi" aria-hidden="true"></i>
+                  </a>
+               
+                  <a href="https://www.youtube.com/@debugshala" title="Youtube" rel="noreferrer" target="_blank">
+                    <i class="fa fa-youtube-play cus_play" aria-hidden="true"></i>
+                  </a>
+                
+                  <a href="https://www.linkedin.com/company/debugshala" title="Linkedin" rel="noreferrer" target="_blank">
+                    <i class="fa fa-linkedin cus_linkd" aria-hidden="true"></i>
+                  </a>
+              
+                  <a href="https://www.instagram.com/debugshala/" title="Instagram" rel="noreferrer" target="_blank">
+                    <i class="fa fa-instagram cus_insta" aria-hidden="true"></i>
+                  </a>
+                </div>
+                </div>
+              </div>
+    
+              <div class="footer-col">
+                <h3>About Us</h3>  <hr style="margin-bottom: 8px;"> 
+              
+                <a href="#">Our Story</a>
+                <a href="#">Our Team</a>
+                <a href="#">Careers</a>
+                <a href="#">Contact Us</a>
+             
+              </div>
+              
+              <div class="footer-col">
+                <h3>Courses</h3><hr style="margin-bottom: 8px;">
+    
+                <a href="#">Data Science</a>
+                <a href="#">MERN Stack</a>
+                <a href="#">Java Full Stack</a>
+                  <a href="#">Generative AI</a>
+                <a href="#">Data Analytics</a>
+                <a href="#">Next.js Development</a>
+                
+              </div>
+              
+              <div class="footer-col">
+                <h3>Resources</h3> <hr style="margin-bottom: 8px;">
+            
+                <a href="#">Blog</a>
+                <a href="#">Success Stories</a>
+                <a href="#">FAQs</a>
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Refund Policy</a>
+               
+              </div>
+              
+           
+    
+              <div class="footer-col">
+                <h3>Crash Courses by Debugshala in Indore</h3> <hr style="margin-bottom: 8px;">
+                
+                <a href="#" target="_blank">Cybersecurity Course in Indore</a>
+                  <a href="#" target="_blank">Cloud Computing Course in Indore</a>
+                  <a href="#" target="_blank">DevOps Course in Indore</a>
+                  <a href="#" target="_blank">Project Management Course in Indore</a>
+                  <a href="#" target="_blank">Blockchain Course in Indore</a>
+                    <a href="#" target="_blank">UI/UX Designing Course in Indore</a>
+                  <a href="#" target="_blank">Generative AI Course in Indore</a>
+                    <a href="#" target="_blank">Chatbot Development Course in Indore</a>
+                  <a href="#" target="_blank">Linux Administrator Course in Indore</a>
+                  <a href="#" target="_blank">WordPress Development Course in Indore</a>
+                  <a href="#" target="_blank">LinkedIn Optimization Course in Indore</a>
+                  <a href="#" target="_blank">AI Marketer Course in Indore</a>
+                
+              </div>
+              <div class="footer-col">
+                <h3>Company</h3>  <hr style="margin-bottom: 8px;">
+              
+                
+                    <a href="https://www.debugshala.com/about-us" title="About Debugshala" target="_blank">About Debugshala</a>
+                  
+                
+                    <a href="https://wa.me/+919111333207" title="Share your expertise with others" target="_blank">Become An Instructor</a>
+                  
+                
+                    <a href="https://www.thedatacareer.com/candidates/" title="Hire From Us" target="_blank">Hire From Us</a>
+                  
+                
+                    <a href="https://www.debugshala.com/privacy-policy" title="Privacy Policy" target="_blank">Privacy Policy</a>
+                  
+                
+                    <a href="https://debugshala.com/terms-conditions/" title="Terms & Conditions" target="_blank">Terms & Conditions</a>
+                  
+                
+                    <a href="https://www.debugshala.com/refund-policy" title="Refund/Cancellation Policy" target="_blank">Refund Policy</a>
+                  
+                
+              </div>
+              <div class="footer-col">
+                <h3>Top Placement Courses in Indore</h3> <hr style="margin-bottom: 8px;">
+              
+                  
+                      <a href="https://debugshala.com/data-science-course-in-indore/" target="_blank">Data Science Placement Course in Indore</a>
+                    
+                  
+                      <a href="https://debugshala.com/data-science-course-in-indore/" target="_blank">Generative AI Placement Course in Indore</a>
+                    
+                  
+                      <a href="https://debugshala.com/data-science-course-in-indore/" target="_blank">Next.js Development Course in Indore</a>
+                    
+                  
+                      <a href="https://debugshala.com/data-science-course-in-indore/" target="_blank">React.js Development Course in Indore</a>
+                    
+                  
+                      <a href="https://debugshala.com/java-full-stack-course-in-indore/" target="_blank">Java Web Development Placement Course in Indore</a>
+                    
+                  
+                      <a href="https://www.debugshala.com/mern-stack-course-in-indore" target="_blank">MERN Stack Development Placement Course in Indore</a>
+                    
+                  
+                
+              </div>
+    
+             
+    
+    
+    
+            </div>
+          
+    
+            
+            <div class="footer-bottom">
+           
+             
+              <p>We have convenient location in Indore at Old Palasia. If you reside or seek training in any of these areas, reach out to our career counselors to discover the our branch for you.</p>
+              <p>Adya Nagar, Airport Road, Aishbagh, Anand Nagar, Annapurna Nagar, Arjun Nagar, Bada Ganpati Nagar, Banganga, Bapu Nagar, Bhawarkuan, Bhelpur, Bhopal Road, Brahmin Colony, Chandan Nagar, Chandragupta Colony, Chhatripura, Civil Lines, Dev Nagar, Dhan Mandi, Dhar Road, Ganesh Nagar, Gopal Mandir, Gopalpura, Hanumanganj, Hira Nagar, Indore Cantt, Janakpuri, Jawahar Nagar, Khajrana, Kothi, Lalbagh, Laxmi Nagar, Malharganj, Manoramaganj, Mangalmurti Nagar, Mhow Road, Nehru Nagar, New Palasia, Old Palasia, Pardesipura, Parle Tilak Nagar, Pithampur, Rajendra Nagar, Rajgarh Road, Rakhial, Ratlam Road, Sanchar Nagar, Saraswati Nagar, Sarafa Bazar, Sayaji Nagar, Shivaji Nagar, Sneh Nagar, Subhash Nagar, Tilak Nagar, Trilanga, Vijay Nagar, Yashwant Nagar.</p>
+              <p>We guarantee that investing an extra 15 - 20 minutes in travel will bring you to the premier training institute that is truly worth both your money and career.</p>
+              <p>© 2023 <a href="https://www.debugshala.com/">Debugshala</a>. All Rights Reserved.</p>
+              <div class="footer-logo">
+                <img src="https://eclectic-klepon-76aabe.netlify.app/assets/image/footer_dbs_1.png"  alt="Debugshala Logo" 
+                style="
+        margin-top: 30px;
+        margin-left: 40px;"
+    >
+              </div>
+            </div>
+          </div>
+        </footer>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+    <script src="/src/scripts/sticky-form.js"></script>
+</body>
+
+</html>
+
+
