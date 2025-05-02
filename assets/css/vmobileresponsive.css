@@ -1,0 +1,236 @@
+
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    /* Navigation */
+    .navbar2 {
+      padding: 10px;
+    }
+    
+    .navBar .icon {
+      display: block;
+    }
+    
+    .navBar .ulList {
+      display: none;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background: #fff;
+      z-index: 1000;
+    }
+    
+    .navBar .ulList.show {
+      display: block;
+    }
+    
+    .Lists > a {
+      padding: 12px 20px;
+    }
+    
+    /* Hero Section */
+    .hero-section-w {
+      padding: 20px 0;
+    }
+    
+    .innerSec {
+      flex-direction: column;
+    }
+    
+    .becomeattitle {
+      position: static;
+      text-align: center;
+      font-size: 1.8rem;
+    }
+    
+    .rotating-text {
+      font-size: 1.5rem;
+    }
+    
+    .header_form {
+      width: 100%;
+      padding: 0 15px;
+    }
+    
+    /* Course Carousels */
+    .program_wrapper {
+      padding: 0 10px;
+    }
+    
+    .carousel {
+      gap: 15px;
+    }
+    
+    .card {
+      min-width: calc(100% - 30px);
+    }
+    
+    /* Why Debugshala Section */
+    .list-row {
+      flex-direction: column;
+    }
+    
+    .row-image {
+      width: 100%;
+      margin: 15px 0;
+    }
+    
+    /* Community Section */
+    .card-container {
+      width: 100%;
+      margin: 15px 0;
+    }
+    
+    /* FAQ Section */
+    .faq-container {
+      flex-direction: column;
+    }
+    
+    .left-column,
+    .right-column {
+      width: 100%;
+      padding: 0 15px;
+    }
+    
+    /* Footer */
+    .rows {
+      flex-direction: column;
+    }
+    
+    .cols-xl-8, 
+    .cols-xl-4 {
+      width: 100%;
+      padding: 0 15px;
+    }
+    
+    .footer_social_list {
+      justify-content: center;
+    }
+    
+    /* General Adjustments */
+    h1, h2, h3 {
+      font-size: 1.5rem;
+      line-height: 1.3;
+    }
+    
+    .page-padding2 {
+      padding: 0 15px;
+    }
+    
+    .scroller_container {
+      padding: 20px 0;
+    }
+    
+    .box {
+      min-width: 250px;
+      margin: 0 10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    /* Smaller Screens */
+    .top-bar-head {
+      font-size: 12px;
+    }
+    
+    .become_para-1,
+    .become_para-2 {
+      font-size: 1.8rem;
+    }
+    
+    .header_form input,
+    .header_form select {
+      width: 100%;
+    }
+    
+    .teach-passion-banner-container {
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+    }
+    
+    .lifetime-deal .div-block-878 {
+      flex-direction: column;
+    }
+    
+    .footer_details p {
+      font-size: 14px;
+    }
+    
+    .footer_img img {
+      max-width: 100%;
+    }
+  }
+  
+  /* Tablet Adjustments */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .card {
+      min-width: calc(50% - 30px);
+    }
+    
+    .list-row {
+      flex-direction: column;
+    }
+    
+    .why-sec-container {
+      padding: 30px;
+    }
+    
+    .community-section .cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  /* Carousel Controls */
+  @media (max-width: 768px) {
+    .carousel1,
+    .carousel2,
+    .carousel3,
+    .carousel4 {
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    .card {
+      scroll-snap-align: start;
+    }
+  }
+  
+  /* Accordion Mobile Styles */
+  @media (max-width: 768px) {
+    .accordion-header {
+      font-size: 16px;
+      padding: 12px;
+    }
+    
+    .accordion-content {
+      font-size: 14px;
+    }
+  }
+  
+  /* Form Adjustments */
+  @media (max-width: 480px) {
+    .header_form {
+      padding: 0 10px;
+    }
+    
+    .header_btn {
+      width: 100%;
+    }
+  }
+  
+  /* Utility Classes */
+  @media (max-width: 768px) {
+    .mobile-hidden {
+      display: none !important;
+    }
+    
+    .mobile-show {
+      display: block !important;
+    }
+    
+    .text-align-center {
+      text-align: center;
+    }
+  }

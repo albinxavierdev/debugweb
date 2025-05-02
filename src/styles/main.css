@@ -60,6 +60,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* Add font smoothing and rendering for all elements */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Improve rendering performance */
+  text-rendering: optimizeSpeed;
 }
 
 body {
@@ -72,6 +77,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   position: relative;
+  scroll-behavior: smooth;
+  /* Additional performance improvements */
+  perspective: 1000px;
+  backface-visibility: hidden;
+  /* Prevent scroll jank */
+  overscroll-behavior: none;
 }
 
 body::before {
@@ -199,6 +210,14 @@ section {
   transition: transform 0.3s ease-out;
   margin: 20px 0;
   border-radius: var(--border-radius-lg);
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  /* Hardware acceleration for sections */
+  perspective: 1000px;
+  /* Manage repaints efficiently */
+  contain: layout paint;
 }
 
 /* Add grid background to light sections */
@@ -206,6 +225,9 @@ section:not(.courses-roadmap-section):not(.masterclasses-section) {
   background-color: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(8px);
   position: relative;
+  will-change: auto;
+  /* Use composite-only properties for background */
+  transform: translate3d(0, 0, 0);
 }
 
 section:not(.courses-roadmap-section):not(.masterclasses-section)::before {
@@ -223,6 +245,7 @@ section:not(.courses-roadmap-section):not(.masterclasses-section)::before {
   pointer-events: none;
   opacity: 1;
   border-radius: var(--border-radius-lg);
+  transform: translateZ(0);
 }
 
 /* Add grid background to dark sections */
@@ -416,6 +439,10 @@ button:hover {
   border: 1px solid rgba(255, 255, 255, 0.1);
   position: relative;
   overflow: hidden;
+  /* Optimize CTA banner for better performance */
+  transform: translateZ(0);
+  will-change: transform;
+  contain: layout style paint;
 }
 
 .cta-banner::before {
@@ -1109,5 +1136,48 @@ footer::after {
   .faq-item.active .faq-answer {
     margin-top: 12px;
     padding-top: 12px;
+  }
+}
+
+/* Images and multimedia optimization */
+img, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  /* Prevent layout shifts during lazy loading */
+  content-visibility: auto;
+  /* Optimize rendering */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Optimize buttons and interactive elements for smoother transitions */
+button, 
+.btn, 
+a.btn, 
+a.card-btn, 
+a.niat-btn,
+a.cta-button {
+  /* Ensure smooth transitions and optimized rendering */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform, box-shadow;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reduce motion for users who prefer less animation */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  body, section, .hero-form-section, .card {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
   }
 }
